@@ -1,0 +1,41 @@
+{% extends 'page/base.html' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container text-center">
+             <h1 class="page-header">COMPARISON TABLE</h1>
+        <p class="lead">Comparison result between 3 product from different sites</p>
+        </div>
+	</div>
+
+    <div class="container">
+	    <div class="row">
+			<div class="col-md-4 well pricing-table">
+	            <div class="pricing-table-holder">
+	                <center>
+	                    <img src="{{ item.pic }}" class="img-responsive" alt="">
+	                    <h3> </h3>
+	                    <p class="caption">
+	                        {{ item.title }}
+	                    </p>
+	                </center>
+	            </div>
+	            <div class="pricing-feature-list">
+	                <ul class="list-group">
+                      <li class="list-group-item">{{ item.page }}</li>
+                      <li class="list-group-item">{{ item.price }}</li>
+                      <li class="list-group-item">{{ item.detail }}</li>
+                      <li class="list-group-item">{{ item.condition }}</li>
+                      <li class="list-group-item">{{ item.location }}</li>
+                      <li class="list-group-item">{{ item.rating }}</li>
+                    </ul>
+	            </div>
+	            <div class="price-table-button-holder">
+                    <button class="btn btn-info btn-block">
+	                    GET NOW
+	                </button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+{%endblock%}

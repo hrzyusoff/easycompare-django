@@ -1,0 +1,26 @@
+{% extends 'page/base.html' %}
+
+{% block body %}
+    <header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <form method="POST" role="form" action="{% url 'search:result' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search here to compare your product" name="userkeyword" value="">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </span>
+                    </div>
+                    </form>
+                    <div>
+<!--                         <span class="desc-under-searchbar"><i><br> use keyword for items that you wish to compare : i.e phone, cars, house</i></span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+{% endblock %}
