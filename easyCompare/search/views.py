@@ -43,10 +43,6 @@ def result(request):
     lelongMainURL = 'https://www.lelong.com.my/catalog/all/list?TheKeyword='
     llconcatURL = lelongMainURL + userkeyword
 
-    #carousell
-    # carousellMainURL = 'https://carousell.com/search/products/?query='
-    # cconcatURL = carousellMainURL + userkeyword
-
     #scraping from each website
     scrapMudahResult = mudah.mudahScrapEngine()
     scrapMudahResult.scrapIt(mconcatURL)
@@ -63,29 +59,15 @@ def result(request):
     return render(request, 'page/search_page.html', {'all_page': page})
 
 
-#page for product comparison
-def specs(request):
-    compare_item = request.POST.get('compare')
-    print(compare_item)
-    item = get_object_or_404(SearchItem, compare_item)
-    return render(request, 'page/products_compare.html', {'item': item})
-
-
 # page for one product only
 def details(request, URLstrip):
     item = get_object_or_404(SearchItem, URLstrip=URLstrip)
     return render(request, 'page/product_detail.html', {'item': item })
 
-#Http404 example - replace with getObjectOr404
-    #try:
-    #    webpage = PageCrawl.objects.get(page_id=page_id)
-    #except PageCrawl.DoesNotExist:
-    #    raise Http404('This page does not exists')
 
-#dynamic page example - replace with template.render
-# print(all_page)
-#    html = ''
-#    for pageCrawl in all_page:
-#        url = '/search/'+str(pageCrawl.page_id)+'/'
-#        html += '<a href ="' + url + '"> '+str(pageCrawl.info)+' </a> <br> '
-#    return HttpResponse(html)
+#page for product comparison
+def specs(request):
+    compare_item = request.POST.getlist("compare")
+    item = SearchItem.objects.filter(title__in=compare_item)
+    return render(request, 'page/products_compare.html', {'item1': item})
+
