@@ -11,11 +11,3 @@ a.list-group-item.active small
 {
     margin:20px auto 1px;
 }
-
-@media (min-width: 1200px) {
-	.media-object 
-	{
-		width: 200px; 
-		height: 200px;
-	}	
-}

@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: Black;
+  src:url("../fonts/Montserrat-Black.otf") format("opentype");
+}
+
+@font-face {
   font-family: Bold;
   src:url("../fonts/Montserrat-SemiBold.otf") format("opentype");
 }
@@ -257,12 +262,33 @@ a:hover,a:focus {
 }
 .btn {
 	text-transform:uppercase;
-	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family:'Bold';
 	font-style: bold;
 	font-weight:400;
 	-webkit-transition:all .3s ease-in-out;
 	-moz-transition:all .3s ease-in-out;
 	transition:all .3s ease-in-out;
+}
+.btn-compare, .btn-buy-now{
+	font-family:'Black';
+}
+.btn-compare{
+	margin: 0px 0px 20px 0px;
+	background-color: #cf4d4b;
+	color: white;
+}
+.btn-compare:hover{
+	background-color: #9b2f2f;
+}
+.btn-compare, .btn-compare:hover, .btn-buy-now, .btn-buy-now:hover{
+	border-color: transparent;
+}
+.btn-buy-now{
+	background-color: #72bc68;
+}
+.btn-buy-now:hover{
+	background-color: #4ba341;
+	color: white;
 }
 /*.btn-default {
 	border:1px solid #42dca3;
@@ -497,12 +523,12 @@ section {
 	border: none !important;
 }
 .content-rating{
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	padding: 15px 5px 15px 5px;
 }
-.media-object{
+/*.media-object{
 	border: 1px solid red;
-}
+}*/
 .title-bold{
 	font-family: 'Bold' !important;
 }
@@ -510,6 +536,43 @@ section {
     border-bottom: none !important;
     margin: 40px 0 -15px;
 }
+input[type=checkbox]{
+	cursor: pointer;
+	text-align: right;
+}
+/*FLOATING BUTTON-SETTING*/
+.btn-floating{
+ 	z-index: 2;
+ 	height: 50px;
+ 	width: 50px;
+ 	position: fixed;
+ 	bottom: 20px;
+ 	right: 20px;
+ 	border-radius: 25px;
+ 	box-sizing: border-box;
+ 	background-color: #efa937;
+}
+.btn-floating .btn-large i{
+ 	line-height: 55.5px;
+}
+.btn-large{
+	padding-top: 6px;
+ 	font-size: 2.5rem;
+}
+.btn-floating i{
+ 	width: inherit;
+ 	display: inline-block;
+ 	text-align: center;
+ 	color: white;
+}
+.btn-floating:hover{
+ 	box-shadow: 3px 3px 10px black;
+ 	transition: all 0.5s linear;
+}
+/*.btn-floating i:hover{
+ 	transform:rotate(360deg);
+ 	transition: all 0.5s linear;
+}*/
 /*
 	Supahands Color scheme
 	red = color: #cf4d4b;
