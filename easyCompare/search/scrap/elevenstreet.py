@@ -25,7 +25,7 @@ class estreetScrapEngine:
 			n = 0
 			count = 0
 			productdiv = container.findAll("h3",{"class":"product-name tit_info"})
-			pricediv = container.findAll("span",{"class":"rm_price old_price"})
+			pricediv = container.findAll("strong",{"class":"rm_price new_price"})
 			prodpic = container.findAll("div",{"class":"thumb"})
 			limitloop = len(productdiv)
 			while n != limitloop:
