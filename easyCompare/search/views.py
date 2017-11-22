@@ -24,9 +24,6 @@ def result(request):
     # lazada
     lazadaMainURL = 'https://www.lazada.com.my/catalog/?q='
     lconcatURL = lazadaMainURL + userkeyword
-    # lazadaMainURL = 'http://www.lazada.com.my/'
-    # lazadaLastURL = '/?itemperpage=60&sc=MS0F&searchredirect='
-    # lconcatURL = lazadaMainURL + userkeyword + lazadaLastURL + userkeyword
 
     # mudah
     mudahMainURL = 'https://www.mudah.my/malaysia/'
