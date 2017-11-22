@@ -5,7 +5,6 @@ from .scrap import lazada
 from .scrap import lelong
 from .scrap import mudah
 from .scrap import elevenstreet
-# from .scrap import carousell
 from django.http import Http404
 
 
@@ -49,8 +48,6 @@ def result(request):
     scrapLelongResult.scrapIt(llconcatURL)
     scrapElevenstreetResult = elevenstreet.estreetScrapEngine()
     scrapElevenstreetResult.scrapIt(esconcatURL)
-    # scrapCarousellResult = carousell.carousellScrapEngine()
-    # scrapCarousellResult.scrapIt(cconcatURL)
 
     page = PageCrawl.objects.all()
     return render(request, 'page/search_page.html', {'all_page': page})
