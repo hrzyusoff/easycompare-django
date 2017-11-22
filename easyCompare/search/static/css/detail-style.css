@@ -11,3 +11,7 @@ a.list-group-item.active small
 {
     margin:20px auto 1px;
 }
+.media-object{
+	width: 233px !important;
+	height: 233px !important;
+}

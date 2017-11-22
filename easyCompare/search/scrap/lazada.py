@@ -32,6 +32,8 @@ class lazadaScrapEngine:
 				productnamelist = productdiv[n].a.text.strip()
 				pricetaglist = pricediv[n].span.text.strip()
 				piclist = propicdiv[n].a.span["data-js-component-params"]
+				alink = propicdiv[n].a["href"]
+				detail_url = 'https://www.lazada.com.my' + alink
 				lcurlyr = piclist.replace("{","")
 				rcurlyr = lcurlyr.replace("}","")
 				srcr = rcurlyr.replace('"src"',"")
@@ -44,7 +46,7 @@ class lazadaScrapEngine:
 																 pic=allr,
 																 rating=0,
 																 detail=' ',
-																 item_link=' ',
+																 item_link=detail_url,
 																 condition='',
 																 location='',
 																 URLstrip=URLStrip)
