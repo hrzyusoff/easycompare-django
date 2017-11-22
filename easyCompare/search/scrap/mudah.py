@@ -39,7 +39,7 @@ class mudahScrapEngine:
 															 location='',
 															 URLstrip=URLStrip)
 			count = count + 1
-			if count == 5:
+			if count == 3:
 				break
 
 		return

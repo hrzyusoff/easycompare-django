@@ -45,7 +45,7 @@ class estreetScrapEngine:
 														  URLstrip=URLStrip)
 				n = n + 1
 				count = count+1
-				if count==5:
+				if count==3:
 					break
 
 		return
