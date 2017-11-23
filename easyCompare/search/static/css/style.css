@@ -573,6 +573,7 @@ input[type=checkbox],.custom-checkbox{
 }
 .cb-ins{
 	font-size: 1.5rem;
+	color: black;
 }
 /*.btn-floating i:hover{
  	transform:rotate(360deg);
