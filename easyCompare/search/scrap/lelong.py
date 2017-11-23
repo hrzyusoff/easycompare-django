@@ -23,6 +23,8 @@ class lelongScrapEngine:
 			productnamelist = productname[0].a.text.strip()
 			pricetaglist = pricetag[0].b.text.strip()
 			piclist = productpic[0].a.span.img["data-original"]
+			linkdirect = productname[0].a["href"]
+			direct_url = linkdirect.replace("//","")
 			URLStrip = productnamelist.strip().replace(" ", "-")
 			item_instance = models.SearchItem.objects.create(page=page,
 															 price=pricetaglist,
@@ -30,7 +32,7 @@ class lelongScrapEngine:
 															 pic=piclist,
 															 rating=0,
 															 detail=' ',
-															 item_link=' ',
+															 item_link=direct_url,
 															 condition='',
 															 location='',
 															 URLstrip=URLStrip)

@@ -524,7 +524,7 @@ section {
 }
 .content-rating{
 	/*border: 1px solid red;*/
-	padding: 15px 5px 15px 5px;
+	/*padding: 15px 5px 15px 5px;*/
 }
 /*.media-object{
 	border: 1px solid red;
@@ -536,9 +536,11 @@ section {
     border-bottom: none !important;
     margin: 40px 0 -15px;
 }
-input[type=checkbox]{
+input[type=checkbox],.custom-checkbox{
 	cursor: pointer;
 	text-align: right;
+	width: 10px;
+	height: 10px;
 }
 /*FLOATING BUTTON-SETTING*/
 .btn-floating{
@@ -568,6 +570,10 @@ input[type=checkbox]{
 .btn-floating:hover{
  	box-shadow: 3px 3px 10px black;
  	transition: all 0.5s linear;
+}
+.cb-ins{
+	font-size: 1.5rem;
+	color: black;
 }
 /*.btn-floating i:hover{
  	transform:rotate(360deg);

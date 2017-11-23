@@ -23,6 +23,7 @@ class mudahScrapEngine:
 		for container in maincontainers:
 			subcontainer = container.findAll("div",{"class":"top_params_col1"})
 			brandnamelist = subcontainer[0].h2.a["title"]
+			direct_url = subcontainer[0].h2.a["href"]
 			brandprice = subcontainer[0].findAll("div",{"class":"ads_price"})
 			brandpricelist = brandprice[0].text.strip()
 			prodpic = container.findAll("div",{"class":"thumbnail_images"})
@@ -34,7 +35,7 @@ class mudahScrapEngine:
 															 pic=prodpiclist,
 															 rating=0,
 															 detail=' ',
-															 item_link=' ',
+															 item_link=direct_url,
 															 condition='',
 															 location='',
 															 URLstrip=URLStrip)
