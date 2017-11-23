@@ -37,7 +37,6 @@ class mudahScrapEngine:
 															 detail=' ',
 															 item_link=direct_url,
 															 condition='',
-															 location='',
 															 URLstrip=URLStrip)
 			count = count + 1
 			if count == 3:

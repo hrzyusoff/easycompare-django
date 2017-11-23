@@ -18,10 +18,9 @@ class SearchItem(models.Model):
     title = models.CharField(max_length=200) #title of the ads
     pic = models.CharField(max_length=250)  #link of the pic provided by seller
     rating = models.IntegerField(default=0)
-    detail = models.CharField(max_length=500)
+    detail = models.CharField(max_length=1000)
     item_link = models.CharField(max_length=250)
     condition = models.CharField(max_length=20)
-    location = models.CharField(max_length=50)
     URLstrip = models.CharField(max_length=250)
 
     def __str__(self):

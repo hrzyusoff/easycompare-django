@@ -43,7 +43,6 @@ class estreetScrapEngine:
 														  detail=' ',
 														  item_link=direct_url,
 														  condition='',
-														  location='',
 														  URLstrip=URLStrip)
 				n = n + 1
 				count = count+1
