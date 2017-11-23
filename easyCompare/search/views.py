@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import PageCrawl, SearchItem
+from .models import PageCrawl, SearchItem, Feedback
 from django.shortcuts import render,get_object_or_404
 from .scrap import lazada
 from .scrap import lelong
@@ -10,6 +10,7 @@ from django.http import Http404
 
 #index page
 def home(request):
+    SearchItem.objects.all().delete()
     page = PageCrawl.objects.all()
     return render(request,'page/index.html',{'page':page,})
 
@@ -17,7 +18,6 @@ def home(request):
 #search main page
 def result(request):
     search_input = request.POST.get('userkeyword', None)
-    SearchItem.objects.all().delete()
     userkeyword = search_input
 
     # lazada
@@ -54,14 +54,14 @@ def result(request):
 
 
 # page for one product only
-def details(request, URLstrip):
-    item = get_object_or_404(SearchItem, URLstrip=URLstrip)
-    return render(request, 'page/product_detail.html', {'item': item })
+def details(request, item_id):
+    item = get_object_or_404(SearchItem, item_id=item_id)
+    return render(request, 'page/product_detail.html', {'item': item})
 
 
 #page for product comparison
 def specs(request):
     compare_item = request.POST.getlist("compare")
-    item = SearchItem.objects.filter(title__in=compare_item)
+    item = SearchItem.objects.filter(item_id__in=compare_item)
     return render(request, 'page/products_compare.html', {'item1': item})
 

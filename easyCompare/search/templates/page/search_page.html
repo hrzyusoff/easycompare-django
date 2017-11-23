@@ -11,10 +11,10 @@
             <div class="well">
             {% for item in page.searchitem_set.all %}
             <div class="list-group">
-              <a href="/search/{{item.URLstrip}}" class="list-group-item active">
+              <a href="/search/{{item.item_id}}" class="list-group-item active">
                     <div class="media col-md-3">
                         <figure class="pull-left">
-                            <input class="pull-left" type="checkbox" id="items" name="compare" value="{{ item.title }}">
+                            <input class="pull-left" type="checkbox" id="items" name="compare" value="{{ item.item_id }}">
                             {% load static %}
                             <img class="media-object img-rounded img-responsive"  src="{{ item.pic }}">
                         </figure>
