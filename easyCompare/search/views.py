@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from .models import PageCrawl, SearchItem, Feedback
 from django.shortcuts import render,get_object_or_404
-from .scrap import lazada
+from .scrap import lazada, lazada2nd
 from .scrap import lelong
-from .scrap import mudah
 from .scrap import elevenstreet
+from .scrap import mudah
 from django.http import Http404
 
 
@@ -12,7 +12,7 @@ from django.http import Http404
 def home(request):
     SearchItem.objects.all().delete()
     page = PageCrawl.objects.all()
-    return render(request,'page/index.html',{'page':page,})
+    return render(request, 'page/index.html', {'page': page})
 
 
 #search main page
@@ -25,11 +25,11 @@ def result(request):
     lconcatURL = lazadaMainURL + userkeyword
 
     # mudah
-    mudahMainURL = 'https://www.mudah.my/malaysia/'
-    mudahMiddleURL = '-for-sale'
-    mudahfLastURL = '?lst=0&fs=1&w=3&cg=0&q='
-    mudahsLastURL = '&so=1&st=s'
-    mconcatURL = mudahMainURL + userkeyword + mudahMiddleURL + mudahfLastURL + userkeyword + mudahsLastURL
+    # mudahMainURL = 'https://www.mudah.my/malaysia/'
+    # mudahMiddleURL = '-for-sale'
+    # mudahfLastURL = '?lst=0&fs=1&w=3&cg=0&q='
+    # mudahsLastURL = '&so=1&st=s'
+    # mconcatURL = mudahMainURL + userkeyword + mudahMiddleURL + mudahfLastURL + userkeyword + mudahsLastURL
 
     # elevenstreet
     elevenstreetMainURL = 'http://www.11street.my/totalsearch/TotalSearchAction/searchTotal?kwd='
@@ -39,9 +39,10 @@ def result(request):
     lelongMainURL = 'https://www.lelong.com.my/catalog/all/list?TheKeyword='
     llconcatURL = lelongMainURL + userkeyword
 
-    #scraping from each website
-    scrapMudahResult = mudah.mudahScrapEngine()
-    scrapMudahResult.scrapIt(mconcatURL)
+    # scrapMudahResult = mudah.mudahScrapEngine()
+    # scrapMudahResult.scrapIt(mconcatURL)
+
+    # scraping from each website
     scrapLazadaResult = lazada.lazadaScrapEngine()
     scrapLazadaResult.scrapIt(lconcatURL)
     scrapLelongResult = lelong.lelongScrapEngine()
@@ -56,6 +57,12 @@ def result(request):
 # page for one product only
 def details(request, item_id):
     item = get_object_or_404(SearchItem, item_id=item_id)
+    link = item.item_link
+    pid = item.item_id
+    print(link)
+    print(pid)
+    scrapLazada = lazada2nd.lazadaScrapEngine()
+    scrapLazada.scrapIt(link,pid)
     return render(request, 'page/product_detail.html', {'item': item})
 
 

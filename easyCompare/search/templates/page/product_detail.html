@@ -29,6 +29,16 @@
                       <li class="list-group-item">{{ item.rating }}</li>
                     </ul>
 	            </div>
+				<div class="pricing-feature-list">
+					{% for feedback in item.feedback_set.all %}
+	                <ul class="list-group">
+                      <li class="list-group-item">{{ feedback.rating }}</li>
+                      <li class="list-group-item">{{ feedback.comment }}</li>
+                      <li class="list-group-item">{{ feedback.seller_rate }}</li>
+                      <li class="list-group-item">{{ feedback.seller_comment }}</li>
+                    </ul>
+					{% endfor %}
+	            </div>
 	            <div class="price-table-button-holder">
                     <button class="btn btn-info btn-block">
 	                    GET NOW

@@ -1,7 +1,15 @@
 
 *.pyc
 *.pyc
+<<<<<<< HEAD
 *.pyc
 *.pyc
 easyCompare/search/migrations/__pycache__/0008_auto_20171102_0831.cpython-36.pyc
 *.pyc
+=======
+*.sqlite3
+*.pyc
+*.pyc
+*.pyc
+easyCompare/search/scrap/__pycache__/lelong.cpython-36.pyc
+>>>>>>> aad89b053914b5c9e8baf3178d8dd5415ca261eb
