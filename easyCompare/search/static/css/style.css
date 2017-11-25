@@ -269,8 +269,12 @@ a:hover,a:focus {
 	-moz-transition:all .3s ease-in-out;
 	transition:all .3s ease-in-out;
 }
+.btn-buy-now{
+	clear: left;
+}
 .btn-compare, .btn-buy-now{
 	font-family:'Black';
+	display: inline;
 }
 .btn-compare{
 	margin: 0px 0px 20px 0px;
@@ -518,10 +522,6 @@ section {
 .padding-kit{
 	margin-top: 100px;
 }
-.list-group-item{
-	padding: 20px 10px 20px 10px !important;
-	border: none !important;
-}
 .content-rating{
 	/*border: 1px solid red;*/
 	/*padding: 15px 5px 15px 5px;*/
@@ -536,11 +536,10 @@ section {
     border-bottom: none !important;
     margin: 40px 0 -15px;
 }
-input[type=checkbox],.custom-checkbox{
+input[type=checkbox], .custom-checkbox{
 	cursor: pointer;
-	text-align: right;
-	width: 10px;
-	height: 10px;
+	width: 15px;
+	height: 15px;
 }
 /*FLOATING BUTTON-SETTING*/
 .btn-floating{
@@ -573,7 +572,9 @@ input[type=checkbox],.custom-checkbox{
 }
 .cb-ins{
 	font-size: 1.5rem;
-	color: black;
+}
+.test-div{
+	border: 1px solid red;
 }
 /*.btn-floating i:hover{
  	transform:rotate(360deg);

@@ -12,32 +12,30 @@
             {% for item in page.searchitem_set.all %}
             <div class="list-group">
               <a href="/search/{{item.item_id}}" class="list-group-item active">
-                    <div class="media col-md-3">
+                    <div class="media col-md-3 test-div">
                         <figure class="pull-left">
-                            <input class="pull-left" type="checkbox" id="items" name="compare" value="{{ item.item_id }}">
                             {% load static %}
                             <img class="media-object img-rounded img-responsive"  src="{{ item.pic }}">
                         </figure>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 test-div">
                         <p class="text-left title-bold"> {{ item.title }}  </p>
                         <p class="list-group-price"> {{ item.price }}</p>
                         <p class="list-group-item-heading"> {{ item.detail }} </p>
                         <p class="list-group-item-text"> {{item.condition}} </p>
                     </div>
-                    <div class="col-md-3 text-center content-rating">
+                    <div class="col-md-3 text-center content-rating test-div">
                         <h2><small> Rating </small></h2>
-                        <div class="stars">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
+                            <div class="stars">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
                         <p> Average {{item.rating}} <small> / </small> {{item.rating}} </p>
-                        <a href="{{item.item_link}}" > Buy Now ! </a>
-                        <p class="cb-ins"> Tick to compare <span><input class="pull-left custom-checkbox" type="checkbox" name="compare" value="{{ item.title }}"></span></p>
-
+                        <button class="btn btn-default btn-lg btn-block btn-buy-now " href="{{item.item_link}}"> Buy Now ! </button>
+                        <p class="cb-ins"> Tick to compare <span><input class="pull-left" type="checkbox" id="items" name="compare" value="{{ item.item_id }}"></span></p>
                     </div>
               </a>
             </div>
@@ -54,7 +52,6 @@
     </body>
     {% load static %}
     <script src="{% static 'js/jquery.js' %}"></script>
-    <!-- Bootstrap Core JavaScript -->
     {% load static %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </html>
