@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from .models import PageCrawl, SearchItem, Feedback
 from django.shortcuts import render,get_object_or_404
 from .scrap import lazada, lazada2nd
-from .scrap import lelong
+from .scrap import lelong, lelong2nd
 from .scrap import elevenstreet
 from .scrap import mudah
 from django.http import Http404
@@ -59,10 +59,15 @@ def details(request, item_id):
     item = get_object_or_404(SearchItem, item_id=item_id)
     link = item.item_link
     pid = item.item_id
+    webpage = item.page
     print(link)
     print(pid)
+    print(webpage)
+
     scrapLazada = lazada2nd.lazadaScrapEngine()
-    scrapLazada.scrapIt(link,pid)
+    scrapLazada.scrapIt(link, pid)
+    scraplelong = lelong2nd.lelongScrapEngine()
+    scraplelong.scrapIt(link, pid)
     return render(request, 'page/product_detail.html', {'item': item})
 
 
