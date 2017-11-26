@@ -34,7 +34,6 @@ class estreetScrapEngine:
 				productnamelist = productdiv[n].a.text.strip()
 				pricetaglist = pricediv[n].text.strip()
 				prodpiclist = prodpic[n].a.img["src"]
-				URLStrip = productnamelist.strip().replace(" ", "-")
 				item_instance = models.SearchItem.objects.create(page=page,
 														  price=pricetaglist,
 														  title=productnamelist,
@@ -42,8 +41,7 @@ class estreetScrapEngine:
 														  rating=0,
 														  detail=' ',
 														  item_link=direct_url,
-														  condition='',
-														  URLstrip=URLStrip)
+														  condition='')
 				n = n + 1
 				count = count+1
 				if count==5:

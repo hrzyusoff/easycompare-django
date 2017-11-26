@@ -32,9 +32,6 @@ def result(request):
     lelongMainURL = 'https://www.lelong.com.my/catalog/all/list?TheKeyword='
     llconcatURL = lelongMainURL + userkeyword
 
-    # scrapMudahResult = mudah.mudahScrapEngine()
-    # scrapMudahResult.scrapIt(mconcatURL)
-
     # scraping from each website
     scrapLazadaResult = lazada.lazadaScrapEngine()
     scrapLazadaResult.scrapIt(lconcatURL)

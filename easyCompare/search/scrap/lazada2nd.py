@@ -38,7 +38,6 @@ class lazadaScrapEngine:
 				srcr = rcurlyr.replace('"src"',"")
 				twodotr = srcr.replace(': "',"")
 				allr = twodotr.replace('"',"").strip()
-				URLStrip = productnamelist.strip().replace(" ", "-")
 				item_instance = models.Feedback.objects.create(item_id=pID,
 																 rating=5,
 																 comment=comment,
