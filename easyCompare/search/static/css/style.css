@@ -49,16 +49,16 @@ h1,h2,h3,h4,h5,h6 {
 	letter-spacing:1px;
 }
 p {
-	font-family: 'Light' !important;
-	margin:0 0 25px;
-	font-size:18px;
-	line-height:1.5;
+	font-family: 'Light';
+/*	margin:0 0 25px;*/
+	font-size:14px;
+	line-height:1;
 }
 @media(min-width:768px) {
 	p {
-		margin:0 0 35px;
-		font-size:20px;
-		line-height:1.6;
+/*		margin:0 0 35px;*/
+		font-size: inherit;
+		line-height:1.1;
 	}
 }
 a {
@@ -82,7 +82,7 @@ a:hover,a:focus {
 	background-color:#000;
 }
 .navbar-custom .navbar-brand {
-	font-size:20px;
+	font-size:17px;
 	text-transform:none;
 	letter-spacing:1px;
 }
@@ -463,6 +463,9 @@ section {
 	background-color:#7a7bae; /*#f9f9f9*/
 	color:#333;
 	overflow:hidden;
+	height: 100%;
+	width: 100%;
+	padding-top: 10%;
 }
 #about {
 	background-color: #7577a0;
@@ -529,8 +532,9 @@ section {
 /*.media-object{
 	border: 1px solid red;
 }*/
-.title-bold{
-	font-family: 'Bold' !important;
+.font-in-search{
+	font-family: 'Bold';
+	font-size: 14px;
 }
 .page-header{
     border-bottom: none !important;
@@ -573,9 +577,18 @@ input[type=checkbox], .custom-checkbox{
 .cb-ins{
 	font-size: 1.5rem;
 }
-.test-div{
-	border: 1px solid red;
+.font-base{
+	font-size: 17px;
 }
+.fbemail{
+	border-bottom:1px dashed red;
+}
+.img-pointer{
+	cursor: pointer;
+}
+/*.test-div{
+	border: 1px solid red;
+}*/
 /*.btn-floating i:hover{
  	transform:rotate(360deg);
  	transition: all 0.5s linear;
