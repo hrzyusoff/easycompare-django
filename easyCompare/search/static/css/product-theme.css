@@ -33,7 +33,7 @@ center>img{
 .pricing-feature-list .list-group-item {
     position: relative;
     display: block;
-    padding: 13px 15px;
+    padding: 15px 15px;
     margin-bottom: -1px;
     background-color: #5a5e7a;
     font-size: 15px;
@@ -42,6 +42,8 @@ center>img{
 }
 .list-group-item{
     background-color: #444 !important;
+    padding: 20px 10px 20px 10px;
+    border: none;
 }
 .pricing-table-holder{
     background-color: #5a5e7a !important;
