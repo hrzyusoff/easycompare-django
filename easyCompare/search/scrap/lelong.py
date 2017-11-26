@@ -36,7 +36,7 @@ class lelongScrapEngine:
 															 condition='',
 															 URLstrip=URLStrip)
 			count = count + 1
-			if count == 3:
+			if count == 5:
 				break
 
 		return

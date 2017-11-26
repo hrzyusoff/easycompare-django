@@ -51,7 +51,7 @@ class lazadaScrapEngine:
 																 URLstrip=URLStrip)
 				n = n + 1
 				count = count+1
-				if count==3:
+				if count==5:
 					break
 		
 		return

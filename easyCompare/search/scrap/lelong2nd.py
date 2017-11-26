@@ -30,19 +30,32 @@ class lelongScrapEngine:
         # 		infoships = infoclasssl[1].text.strip()
         # 		print("Shipping info (PEN. MALAYSIA) : "+infoshippen+"\nShipping info (SABAH/LABUAN) : "+infoshipsl+"\nShipping info (SARAWAK) : "+infoships)
 
-        #for supplier rating
         ratingcontainer = page_soup.findAll("div", {"class":"seller-info-wrap"})
         for container in ratingcontainer:
             n = 0
-            inforating = container.findAll("div", {"class":"fontsize12"})
-            print("Seller Rating : "+inforating[1].b.a.text)
-            limitloop = len(inforating)
-            while n!=limitloop:
-                item_instance = models.Feedback.objects.create(item_id=pID,
-                                                               rating=5,
-                                                               comment=inforating,
-                                                               seller_rate=3,
-                                                               seller_comment='')
+            detailrating = container.findAll("div", {"class":"fontsize12"})
+            inforating = detailrating[1].b.a.text
+            item_instance = models.Feedback.objects.create(item_id=pID,
+                                                           rating=5,
+                                                           comment=inforating,
+                                                           seller_rate=3,
+                                                           seller_comment='')
+
         return
+
+
+        #for supplier rating
+        # ratingcontainer = page_soup.findAll("div", {"class":"seller-info-wrap"})
+        # for container in ratingcontainer:
+        #     n = 0
+        #     inforating = container.findAll("div", {"class":"fontsize12"})
+        #     print("Seller Rating : "+inforating[1].b.a.text)
+        #     limitloop = len(inforating)
+        #     while n!=limitloop:
+        #         item_instance = models.Feedback.objects.create(item_id=pID,
+        #                                                        rating=5,
+        #                                                        comment=inforating,
+        #                                                        seller_rate=3,
+                                                               # seller_comment='')
 
 
