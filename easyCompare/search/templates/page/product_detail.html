@@ -1,124 +1,123 @@
 {% extends 'page/base.html' %}
 
 {% block body %}
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<form class="col-md-12">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-					</form>
-				</div>
-			</div>
+		<!--<div class="container-fluid">-->
+			<!--<div class="row">-->
+				<!--<div class="col-md-12">-->
+					<!--<form class="col-md-12">-->
+							<!--<div class="form-group">-->
+								<!--<input type="text" class="form-control" placeholder="Search">-->
+							<!--</div>-->
+					<!--</form>-->
+				<!--</div>-->
+			<!--</div>-->
 
-			<div class="row">
-				<div class="col-md-4">
+			<!--<div class="row">-->
+				<!--<div class="col-md-4">-->
 
-						<div class="row">
-							<div class="col-md-12">
-								<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="210" height="210">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">
-							</div>
-							<div class="col-md-3">
-								<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">
-							</div>
-							<div class="col-md-3">
-								<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">
-							</div>
-						</div>
+						<!--<div class="row">-->
+							<!--<div class="col-md-12">-->
+								<!--<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="210" height="210">-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="row">-->
+							<!--<div class="col-md-3">-->
+								<!--<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">-->
+							<!--</div>-->
+							<!--<div class="col-md-3">-->
+								<!--<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">-->
+							<!--</div>-->
+							<!--<div class="col-md-3">-->
+								<!--<img src="{{ item.pic }}" class="img-rounded" alt="Cinque Terre" width="70" height="70">-->
+							<!--</div>-->
+						<!--</div>-->
 
-				</div>
-				<div class="col-md-8">
-					 <div class="product-title">{{ item.title }}</div>
-							<div class="product-desc">{{ item.page }}</div>
-							<div class="product-desc">{{ item.condition }}</div>
-							<div class="product-desc">{{ item.rating }}</div>
-							<hr>
-							<div class="product-price">{{ item.price }}</div>
-					</div>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="nav nav-tabs nav_tabs">
-						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a>
-                            {% for fb in item.feedback_set.all %}
-                             <p>fb.rating</p>
-    						 <p>fb.comment</p>
-                            <p>fb.seller_rate</p>
-                            <p>fb.seller_comment</p>
-                            {% endfor %}
-						</li>
-						<!--<li><a href="#service-two" data-toggle="tab">SPECFICATION</a>-->
-						<!--<p>cuba</p>-->
-						<!--<p>spec</p>-->
-						<!--<p>la</p>-->
-						<!--<p>kot</p>-->
-						<!--<p>entah</p>-->
+				<!--</div>-->
+				<!--<div class="col-md-8">-->
+					 <!--<div class="product-title">{{ item.title }}</div>-->
+							<!--<div class="product-desc">{{ item.page }}</div>-->
+							<!--<div class="product-desc">{{ item.condition }}</div>-->
+							<!--<div class="product-desc">{{ item.rating }}</div>-->
+							<!--<hr>-->
+							<!--<div class="product-price">{{ item.price }}</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<hr>-->
+			<!--<div class="row">-->
+				<!--<div class="col-md-12">-->
+					<!--<ul class="nav nav-tabs nav_tabs">-->
+						<!--<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a>-->
+                            <!--{% for fb in item.feedback_set.all %}-->
+                             <!--<p>fb.rating</p>-->
+    						 <!--<p>fb.comment</p>-->
+                            <!--<p>fb.seller_rate</p>-->
+                            <!--<p>fb.seller_comment</p>-->
+                            <!--{% endfor %}-->
 						<!--</li>-->
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-1 col-md-offset-11">
-					<button type="button" class="btn btn-primary">Primary</button>
-				</div>
-			</div>
-		</div>
+						<!--&lt;!&ndash;<li><a href="#service-two" data-toggle="tab">SPECFICATION</a>&ndash;&gt;-->
+						<!--&lt;!&ndash;<p>cuba</p>&ndash;&gt;-->
+						<!--&lt;!&ndash;<p>spec</p>&ndash;&gt;-->
+						<!--&lt;!&ndash;<p>la</p>&ndash;&gt;-->
+						<!--&lt;!&ndash;<p>kot</p>&ndash;&gt;-->
+						<!--&lt;!&ndash;<p>entah</p>&ndash;&gt;-->
+						<!--&lt;!&ndash;</li>&ndash;&gt;-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="row">-->
+				<!--<div class="col-md-1 col-md-offset-11">-->
+					<!--<button type="button" class="btn btn-primary">Primary</button>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
+    <div class="jumbotron">
+        <div class="container text-center">
+             <h1 class="page-header">PRODUCT DETAILS</h1>
+        <p class="lead">More details about the product</p>
+        </div>
+	</div>
 
-
-
-    <!--<div class="jumbotron">-->
-        <!--<div class="container text-center">-->
-             <!--<h1 class="page-header">PRODUCT DETAILS</h1>-->
-        <!--<p class="lead">More details about the product</p>-->
-        <!--</div>-->
-	<!--</div>-->
-
-    <!--<div class="container">-->
-	    <!--<div class="row">-->
-			<!--<div class="col-md-4 well pricing-table">-->
-	            <!--<div class="pricing-table-holder">-->
-	                <!--<center>-->
-	                    <!--<img src="{{ item.pic }}" class="img-responsive img-circle" alt="">-->
-	                    <!--<h3> </h3>-->
-	                    <!--<p class="caption">-->
-	                        <!--{{ item.title }}-->
-	                    <!--</p>-->
-	                <!--</center>-->
-	            <!--</div>-->
-	            <!--<div class="pricing-feature-list">-->
-	                <!--<ul class="list-group">-->
-                      <!--<li class="list-group-item">{{ item.page }}</li>-->
-                      <!--<li class="list-group-item">{{ item.price }}</li>-->
-                      <!--<li class="list-group-item">{{ item.detail }}</li>-->
-                      <!--<li class="list-group-item">{{ item.condition }}</li>-->
-                      <!--<li class="list-group-item">{{ item.rating }}</li>-->
-                    <!--</ul>-->
-	            <!--</div>-->
-				<!--<div class="pricing-feature-list">-->
-					<!--{% for feedback in item.feedback_set.all %}-->
-	                <!--<ul class="list-group">-->
-                      <!--<li class="list-group-item">{{ feedback.rating }}</li>-->
-                      <!--<li class="list-group-item">{{ feedback.comment }}</li>-->
-                      <!--<li class="list-group-item">{{ feedback.seller_rate }}</li>-->
-                      <!--<li class="list-group-item">{{ feedback.seller_comment }}</li>-->
-                    <!--</ul>-->
-					<!--{% endfor %}-->
-	            <!--</div>-->
-	            <!--<div class="price-table-button-holder">-->
-                    <!--<button class="btn btn-info btn-block">-->
-	                    <!--GET NOW-->
-	                <!--</button>-->
-	            <!--</div>-->
-	        <!--</div>-->
-	    <!--</div>-->
-	<!--</div>-->
+    <div class="container">
+	    <div class="row">
+			<div class="col-md-4 well pricing-table">
+	            <div class="pricing-table-holder">
+	                <center>
+	                    <img src="{{ item.pic }}" class="img-responsive img-circle" alt="">
+	                    <h3> </h3>
+	                    <p class="caption">
+	                        {{ item.title }}
+	                    </p>
+	                </center>
+	            </div>
+	            <div class="pricing-feature-list">
+	                <ul class="list-group">
+                      <li class="list-group-item">E-commerce: {{ item.page }}</li>
+                      <li class="list-group-item">Price: {{ item.price }}</li>
+                      <li class="list-group-item">Details: {{ item.detail }}</li>
+                      <li class="list-group-item">Condition: {{ item.condition }}</li>
+                      <li class="list-group-item">Overall rating: {{ item.rating }}</li>
+                    </ul>
+	            </div>
+				<div class="pricing-feature-list">
+					{% for feedback in item.feedback_set.all %}
+	                <ul class="list-group">
+                      <li class="list-group-item">Rating: {{ feedback.rating }}</li>
+                      <li class="list-group-item">Comment: {{ feedback.comment }}</li>
+                    </ul>
+					{% endfor %}
+                    <ul>
+                        <li class="list-group-item">Seller rating: {{ feedback.seller_rate }}</li>
+                        <li class="list-group-item">Seller feedback: {{ feedback.seller_comment }}</li>
+                    </ul>
+	            </div>
+	            <div class="price-table-button-holder">
+                    <button class="btn btn-info btn-block">
+	                    GET NOW
+	                </button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 {%endblock%}

@@ -1,15 +1,15 @@
 from django.http import HttpResponse
 from .models import PageCrawl, SearchItem, Feedback
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from .scrap import lazada, lazada2nd
 from .scrap import lelong, lelong2nd
 from .scrap import elevenstreet
-from .scrap import mudah
 from django.http import Http404
 
 
 #index page
 def home(request):
+    Feedback.objects.all().delete()
     SearchItem.objects.all().delete()
     page = PageCrawl.objects.all()
     return render(request, 'page/index.html', {'page': page})
@@ -23,13 +23,6 @@ def result(request):
     # lazada
     lazadaMainURL = 'https://www.lazada.com.my/catalog/?q='
     lconcatURL = lazadaMainURL + userkeyword
-
-    # mudah
-    # mudahMainURL = 'https://www.mudah.my/malaysia/'
-    # mudahMiddleURL = '-for-sale'
-    # mudahfLastURL = '?lst=0&fs=1&w=3&cg=0&q='
-    # mudahsLastURL = '&so=1&st=s'
-    # mconcatURL = mudahMainURL + userkeyword + mudahMiddleURL + mudahfLastURL + userkeyword + mudahsLastURL
 
     # elevenstreet
     elevenstreetMainURL = 'http://www.11street.my/totalsearch/TotalSearchAction/searchTotal?kwd='
@@ -59,10 +52,6 @@ def details(request, item_id):
     item = get_object_or_404(SearchItem, item_id=item_id)
     link = item.item_link
     pid = item.item_id
-    webpage = item.page
-    print(link)
-    print(pid)
-    print(webpage)
 
     scrapLazada = lazada2nd.lazadaScrapEngine()
     scrapLazada.scrapIt(link, pid)
