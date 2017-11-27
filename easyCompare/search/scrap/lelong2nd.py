@@ -28,7 +28,7 @@ class lelongScrapEngine:
         		infoshipsl = infoclasssl[0].text.strip()
         		infoships = infoclasssl[1].text.strip()
 
-        """ new scrap """       
+        """ new scrap """ #NEW     
         #for conditions
         conditioncontainer = page_soup.findAll("div",{"class":"inline-block"})
         for container in conditioncontainer:
