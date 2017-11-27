@@ -46,7 +46,6 @@ class lelongScrapEngine:
                 speclistfinal = speclist[n].text.strip()
                 print(speclistfinal) #masuk model here
                 n = n + 1
-        """ end of new scrap """
 
         #for supplier rating
         ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})
@@ -55,7 +54,7 @@ class lelongScrapEngine:
             inforating = container.findAll("div", {"class": "fontsize12"})
             rateinfo = inforating[1].b.a.text
             item_instance = models.Feedback.objects.create(item_id=pID,
-                                                           rating=5,
+                                                           rating="5",
                                                            comment=inforating)
 
             count = count + 1

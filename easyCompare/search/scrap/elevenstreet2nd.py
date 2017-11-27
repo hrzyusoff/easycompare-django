@@ -19,7 +19,7 @@ class estreetScrapEngine:
 
 		maincontainer = page_soup.findAll("div",{"class":"wrap_category"})
 
-		page = get_object_or_404(models.PageCrawl, pk=8)
+		PID = get_object_or_404(models.PageCrawl, pk=8)
 
 		itemspec = page_soup.findAll("ul",{"class":"display-table"})
 		for container in itemspec:
@@ -65,16 +65,9 @@ class estreetScrapEngine:
 				productnamelist = productdiv[n].a.text.strip()
 				pricetaglist = pricediv[n].text.strip()
 				prodpiclist = prodpic[n].a.img["src"]
-				item_instance = models.SearchItem.objects.create(page=page,
-														  price=pricetaglist,
-														  title=productnamelist,
-														  pic=prodpiclist,
-														  rating=0,
-														  detail=' ',
-														  item_link=direct_url,
-														  condition='',
-														  seller_rate='',
-                                                          shipping='')
+				item_instance = models.SearchItem.objects.create(item_id=PID,
+																 rating="5",
+																 comment="")
 				n = n + 1
 				count = count+1
 				if count==5:
