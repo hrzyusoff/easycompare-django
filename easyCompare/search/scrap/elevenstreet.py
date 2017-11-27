@@ -41,7 +41,8 @@ class estreetScrapEngine:
 														  rating=0,
 														  detail=' ',
 														  item_link=direct_url,
-														  condition='')
+														  condition='',
+														  seller_rate='')
 				n = n + 1
 				count = count+1
 				if count==5:

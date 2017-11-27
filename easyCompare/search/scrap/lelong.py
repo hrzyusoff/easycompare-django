@@ -32,7 +32,8 @@ class lelongScrapEngine:
 															 rating=0,
 															 detail=' ',
 															 item_link=direct_url,
-															 condition='')
+															 condition='',
+															 seller_rate='')
 			count = count + 1
 			if count == 5:
 				break

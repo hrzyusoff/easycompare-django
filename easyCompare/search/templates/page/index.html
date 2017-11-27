@@ -23,4 +23,54 @@
         </div>
     </div>
     </header>
+
+    <!-- About Section -->
+    <section id="about">
+    <div class="container content-section text-center">
+        <div class="row white-font">
+            {% load static %}
+            <img class="white-icons" src="{% static '/img/icons/shop.svg' %}">
+            <h2 class="typewrite" data-period="2000" data-type='["Hi, we are EasyCompare"]'><span class="wrap"></span></h2>
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="font-base">
+                    EasyCompare is a comparison shopping site, aggregate price and products from famous online retailers like Lazada, Lelong and 11street.
+                </p>
+    <!--             <p>
+                    <a href="#" class="btnghost"><i class="fa fa-download"></i> Print your result here</a>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container content-section text-center">
+            <div class="row white-font">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <img class="white-icons" src="{% static '/img/icons/connect-2.svg' %}">
+                    <h2>Stay connected at</h2>
+                    <p>
+
+                    </p>
+                    <p>
+                        <i><a href="mailto:wowthemesnet@gmail.com" class="font-base fbemail">easycompare@gmail.com</a></i>
+                    </p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                        <a href="#" class="btn btnghost btn-lg"><i class="fa fa-twitter fa-fw"></i><span class="network-name">Twitter</span></a>
+                        </li>
+                        <li>
+                        <a href="#" class="btn btnghost btn-lg"><i class="fa fa-facebook fa-fw"></i><span class="network-name">Facebook</span></a>
+                        </li>
+                        <li>
+                        <a href="#" class="btn btnghost btn-lg"><i class="fa fa-google-plus fa-fw"></i><span class="network-name">Google+</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Fixed up button-->
+    <a href="#top" class="btn-floating btn-large waves-effect waves-light red"><i class="fa fa-chevron-up"></i></a>
+    <!--end of Fixed up button-->
 {% endblock %}

@@ -44,9 +44,10 @@ class lazadaScrapEngine:
 																 title=productnamelist,
 																 pic=allr,
 																 rating=0,
-																 detail=' ',
+																 detail='',
 																 item_link=detail_url,
-																 condition='')
+																 condition='',
+																 seller_rate='')
 				n = n + 1
 				count = count+1
 				if count==5:

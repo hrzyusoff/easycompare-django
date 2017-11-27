@@ -28,20 +28,8 @@ class lazadaScrapEngine:
 			propicdiv = container.findAll("div",{"class":"c-product-card__img-placeholder"})
 			limitloop = len(comment)
 			while n!= limitloop:
-				productnamelist = comment[n].a.text.strip()
-				pricetaglist = pricediv[n].span.text.strip()
-				piclist = propicdiv[n].a.span["data-js-component-params"]
-				directlink = propicdiv[n].a["href"]
-				detail_url = 'https://www.lazada.com.my' + directlink
-				lcurlyr = piclist.replace("{","")
-				rcurlyr = lcurlyr.replace("}","")
-				srcr = rcurlyr.replace('"src"',"")
-				twodotr = srcr.replace(': "',"")
-				allr = twodotr.replace('"',"").strip()
 				item_instance = models.Feedback.objects.create(item_id=pID,
 																 rating=5,
-																 comment=comment,
-																 seller_rate=3,
-																 seller_comment=pricetaglist)
+																 comment=comment)
 		
 		return
