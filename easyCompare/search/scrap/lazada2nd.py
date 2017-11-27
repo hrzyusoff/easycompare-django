@@ -23,6 +23,23 @@ class lazadaScrapEngine:
 
 		pID = get_object_or_404(models.SearchItem, item_id=item.item_id)
 
+		""" new scrap
+		#specs
+		itemspec = page_soup.findAll("ul",{"class":"display-table"})
+		for container in itemspec:
+		print("Specs:"+container.text.strip())
+		
+		#rateitem
+		rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
+		for container in rateitem:
+		rateitemval = container.span["content"]
+		print("Rate Item:"+rateitemval)
+			
+		#rateseller
+		rateseller = page_soup.findAll("dl",{"class":"product-detail-seller"})
+		print(len(rateseller))
+		"""
+
 		for container in mainbigcontainer:
 			n = 0
 			comment = container.findAll("div",{"class":"c-review__comment"})
