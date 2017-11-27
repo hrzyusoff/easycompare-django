@@ -33,13 +33,23 @@ class lelongScrapEngine:
         for container in ratingcontainer:
             count = 0
             inforating = container.findAll("div", {"class": "fontsize12"})
-            print("Seller Rating : "+inforating[1].b.a.text)
+            rateinfo = inforating[1].b.a.text
             item_instance = models.Feedback.objects.create(item_id=pID,
+<<<<<<< HEAD
                                                            rating=5,
                                                            comment=inforating)
+=======
+                                                               rating=5,
+                                                               comment=rateinfo,
+                                                               seller_rate=3,
+                                                               seller_comment='')
+>>>>>>> f0a5421d7cd1d90a3efd48d012d06e45bb1bbb1f
             count = count + 1
             if count == 5:
                 break
+<<<<<<< HEAD
+=======
         return
 
+>>>>>>> 8787e6a878ddcedb038aa43b77c73839931c76a9
 
