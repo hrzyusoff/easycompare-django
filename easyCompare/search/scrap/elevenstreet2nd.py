@@ -6,9 +6,9 @@ import requests
 
 class estreetScrapEngine:
 
-	def scrapIt(self, esconcatURL):
+	def scrapIt(self, item):
 		#url of site to scrap
-		my_url = esconcatURL
+		my_url = item.item_link
 		#to act like human that browse from browser
 		headers = {'User-Agent':'Mozilla/5.0'}
 		#do requesting to act like human not bot
@@ -19,38 +19,23 @@ class estreetScrapEngine:
 
 		maincontainer = page_soup.findAll("div",{"class":"wrap_category"})
 
-		PID = get_object_or_404(models.PageCrawl, pk=8)
+		PID = get_object_or_404(models.PageCrawl, item_id = item.item_id)
 
+		#latest one
+		#specs/detail of item
 		itemspec = page_soup.findAll("ul",{"class":"display-table"})
 		for container in itemspec:
-			print("Specs:"+container.text.strip())
-
-		rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
-		for container in rateitem:
-			rateitemval = container.span["content"]
-			print("Rate Item:"+rateitemval)
-
-		rateseller = page_soup.findAll("dl",{"class":"product-detail-seller"})
-		print(len(rateseller))
-
-		#latest one 
-		""" new scrap """
-		#specs
-		itemspec = page_soup.findAll("ul",{"class":"display-table"})
-		for container in itemspec:
-		print("Specs:"+container.text.strip())
+		    print("Specs:"+container.text.strip())
 		
 		#rateitem
 		rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
 		for container in rateitem:
-		rateitemval = container.span["content"]
-		print("Rate Item:"+rateitemval)
+		    rateitemval = container.span["content"]
+		    print("Rate Item:"+rateitemval)
 			
 		#rateseller
 		rateseller = page_soup.findAll("dl",{"class":"product-detail-seller"})
 		print(len(rateseller))
-		
-		""" end of new scrap """
 
 		for container in maincontainer:
 			n = 0
@@ -65,7 +50,7 @@ class estreetScrapEngine:
 				productnamelist = productdiv[n].a.text.strip()
 				pricetaglist = pricediv[n].text.strip()
 				prodpiclist = prodpic[n].a.img["src"]
-				item_instance = models.SearchItem.objects.create(item_id=PID,
+				item_instance = models.Feedback.objects.create(item_id=PID,
 																 rating="5",
 																 comment="")
 				n = n + 1
