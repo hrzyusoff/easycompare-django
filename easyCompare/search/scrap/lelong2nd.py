@@ -30,49 +30,18 @@ class lelongScrapEngine:
         		infoships = infoclasssl[1].text.strip()
         		print("Shipping info (PEN. MALAYSIA) : "+infoshippen+"\nShipping info (SABAH/LABUAN) : "+infoshipsl+"\nShipping info (SARAWAK) : "+infoships)
 
-<<<<<<< HEAD
         #for supplier rating
         ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})
         for container in ratingcontainer:
             count = 0
             inforating = container.findAll("div", {"class": "fontsize12"})
-            print("Seller Rating : "+inforating[1].b.a.text)
+            rateinfo = inforating[1].b.a.text
             item_instance = models.Feedback.objects.create(item_id=pID,
                                                                rating=5,
-                                                               comment=inforating,
+                                                               comment=rateinfo,
                                                                seller_rate=3,
                                                                seller_comment='')
             count = count + 1
             if count == 5:
                 break
-=======
-        ratingcontainer = page_soup.findAll("div", {"class":"seller-info-wrap"})
-        for container in ratingcontainer:
-            n = 0
-            detailrating = container.findAll("div", {"class":"fontsize12"})
-            inforating = detailrating[1].b.a.text
-            item_instance = models.Feedback.objects.create(item_id=pID,
-                                                           rating=5,
-                                                           comment=inforating,
-                                                           seller_rate=3,
-                                                           seller_comment='')
->>>>>>> 929c8e758b93cfbfd5fac6cf4188ce101539a217
-
-        return
-
-
-        #for supplier rating
-        # ratingcontainer = page_soup.findAll("div", {"class":"seller-info-wrap"})
-        # for container in ratingcontainer:
-        #     n = 0
-        #     inforating = container.findAll("div", {"class":"fontsize12"})
-        #     print("Seller Rating : "+inforating[1].b.a.text)
-        #     limitloop = len(inforating)
-        #     while n!=limitloop:
-        #         item_instance = models.Feedback.objects.create(item_id=pID,
-        #                                                        rating=5,
-        #                                                        comment=inforating,
-        #                                                        seller_rate=3,
-                                                               # seller_comment='')
-
 

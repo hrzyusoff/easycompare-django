@@ -12,25 +12,17 @@
             {% for item in page.searchitem_set.all %}
             <div class="list-group">
               <!-- Trigger the modal with a button -->
-              <a class="list-group-item active">  <!-- href="/search/{{item.item_id}}" --> 
+              <a href="/search/{{item.item_id}}" class="list-group-item active">
                     <div class="media col-lg-2 test-div">
                         <figure class="pull-left">
                             {% load static %}
                             <img class="media-object img-rounded img-responsive img-pointer" src="{{ item.pic }}" data-toggle="modal" data-target="#product-review">
                         </figure>
                     </div>
-<<<<<<< HEAD
                     <div class="col-md-8 test-div">
                         <p class="text-left font-in-search">{{ item.title }}</p>
                         <p class="list-group-price">{{ item.price }}</p>
                         <p class="list-group-item-text">{{item.condition}}</p>
-=======
-                    <div class="col-md-6 test-div">
-                        <p class="text-left title-bold"> {{ item.title }}  </p>
-                        <p class="list-group-price"> {{ item.price }}</p>
-                        <p class="list-group-item-heading"> </p>
-                        <p class="list-group-item-text"> {{item.condition}} </p>
->>>>>>> 64105930dcb0900b828dbe535f5c04f230f1b231
                     </div>
                     <div class="col-md-2 text-center content-rating test-div font-in-search">
                         <p class="font-in-search text-uppercase"> Rating </p>
@@ -55,26 +47,6 @@
         {% else %}
         <h1> No Page to crawl </h1>
         {% endif %}
-        <!-- Modal -->
-        <div id="product-review" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-        
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
-              </div>
-              <div class="modal-body">
-                <p>Some text in the modal.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        
-          </div>
-        </div>
     </div>
     </body>
     </html>
