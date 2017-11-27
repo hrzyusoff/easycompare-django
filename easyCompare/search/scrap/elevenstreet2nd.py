@@ -21,6 +21,37 @@ class estreetScrapEngine:
 
 		PID = get_object_or_404(models.PageCrawl, pk=8)
 
+		itemspec = page_soup.findAll("ul",{"class":"display-table"})
+		for container in itemspec:
+			print("Specs:"+container.text.strip())
+
+		rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
+		for container in rateitem:
+			rateitemval = container.span["content"]
+			print("Rate Item:"+rateitemval)
+
+		rateseller = page_soup.findAll("dl",{"class":"product-detail-seller"})
+		print(len(rateseller))
+
+		#latest one 
+		""" new scrap """
+		#specs
+		itemspec = page_soup.findAll("ul",{"class":"display-table"})
+		for container in itemspec:
+		print("Specs:"+container.text.strip())
+		
+		#rateitem
+		rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
+		for container in rateitem:
+		rateitemval = container.span["content"]
+		print("Rate Item:"+rateitemval)
+			
+		#rateseller
+		rateseller = page_soup.findAll("dl",{"class":"product-detail-seller"})
+		print(len(rateseller))
+		
+		""" end of new scrap """
+
 		for container in maincontainer:
 			n = 0
 			count = 0
