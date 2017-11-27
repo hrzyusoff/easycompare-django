@@ -25,7 +25,6 @@ class lelongScrapEngine:
 			piclist = productpic[0].a.span.img["data-original"]
 			linkdirect = productname[0].a["href"]
 			direct_url = linkdirect.replace("//","http://")
-			URLStrip = productnamelist.strip().replace(" ", "-")
 			item_instance = models.SearchItem.objects.create(page=page,
 															 price=pricetaglist,
 															 title=productnamelist,
@@ -33,8 +32,7 @@ class lelongScrapEngine:
 															 rating=0,
 															 detail=' ',
 															 item_link=direct_url,
-															 condition='',
-															 URLstrip=URLStrip)
+															 condition='')
 			count = count + 1
 			if count == 5:
 				break

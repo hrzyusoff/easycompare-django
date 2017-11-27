@@ -39,7 +39,6 @@ class lazadaScrapEngine:
 				srcr = rcurlyr.replace('"src"',"")
 				twodotr = srcr.replace(': "',"")
 				allr = twodotr.replace('"',"").strip()
-				URLStrip = productnamelist.strip().replace(" ", "-")
 				item_instance = models.SearchItem.objects.create(page=page,
 																 price=pricetaglist,
 																 title=productnamelist,
@@ -47,8 +46,7 @@ class lazadaScrapEngine:
 																 rating=0,
 																 detail=' ',
 																 item_link=detail_url,
-																 condition='',
-																 URLstrip=URLStrip)
+																 condition='')
 				n = n + 1
 				count = count+1
 				if count==5:
