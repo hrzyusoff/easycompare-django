@@ -5,14 +5,14 @@ from search import models
 
 class lelongScrapEngine:
 
-    def scrapIt(self, link, pid):
-        my_url = link
+    def scrapIt(self, item):
+        my_url = item.item_link
 
         headers = {'User-Agent': 'Mozilla/5.0'}
         page = requests.get(my_url)
         page_soup = soup(page.text, "html.parser")
 
-        pID = get_object_or_404(models.SearchItem, item_id=pid)
+        pID = get_object_or_404(models.SearchItem, item_id=item.item_id)
 
         #for shipping
         shipcontainer = page_soup.findAll("div",{"class":"paddingtop5 paddingbottom5"})
@@ -35,21 +35,10 @@ class lelongScrapEngine:
             inforating = container.findAll("div", {"class": "fontsize12"})
             rateinfo = inforating[1].b.a.text
             item_instance = models.Feedback.objects.create(item_id=pID,
-<<<<<<< HEAD
                                                            rating=5,
                                                            comment=inforating)
-=======
-                                                               rating=5,
-                                                               comment=rateinfo,
-                                                               seller_rate=3,
-                                                               seller_comment='')
->>>>>>> f0a5421d7cd1d90a3efd48d012d06e45bb1bbb1f
+
             count = count + 1
             if count == 5:
                 break
-<<<<<<< HEAD
-=======
         return
-
->>>>>>> 8787e6a878ddcedb038aa43b77c73839931c76a9
-

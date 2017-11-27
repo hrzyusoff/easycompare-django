@@ -5,11 +5,13 @@ from search import models
 
 class lazadaScrapEngine:
 	
-	def scrapIt(self, link,pid):
+	def scrapIt(self, item):
 		#url of site to scrap
-		my_url =link
+		my_url =item.item_link
+
 		#to act like human that browse from browser
 		headers = {'User-Agent':'Mozilla/5.0'}
+
 		#do requesting to act like human not bot
 		page = requests.get(my_url)
 
@@ -19,7 +21,7 @@ class lazadaScrapEngine:
 		#main container including header
 		mainbigcontainer = page_soup.findAll("div",{"class":"c-review-list_js_inited"})
 
-		pID = get_object_or_404(models.SearchItem, item_id=pid)
+		pID = get_object_or_404(models.SearchItem, item_id=item.item_id)
 
 		for container in mainbigcontainer:
 			n = 0

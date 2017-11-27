@@ -47,13 +47,18 @@ def result(request):
 # page for one product only
 def details(request, item_id):
     item = get_object_or_404(SearchItem, item_id=item_id)
-    link = item.item_link
-    pid = item.item_id
+    page = item.page
 
-    scrapLazada = lazada2nd.lazadaScrapEngine()
-    scrapLazada.scrapIt(link, pid)
-    scraplelong = lelong2nd.lelongScrapEngine()
-    scraplelong.scrapIt(link, pid)
+    if page == '11street':
+        scrap11street = lelong2nd.lelongScrapEngine()
+        scrap11street.scrapIt(item)
+    elif page == 'Lazada Malaysia':
+        scrapLazada = lazada2nd.lazadaScrapEngine()
+        scrapLazada.scrapIt(item)
+    else:
+        scraplelong = lelong2nd.lelongScrapEngine()
+        scraplelong.scrapIt(item)
+
     return render(request, 'page/product_detail.html', {'item': item})
 
 
@@ -61,5 +66,21 @@ def details(request, item_id):
 def specs(request):
     compare_item = request.POST.getlist("compare")
     item = SearchItem.objects.filter(item_id__in=compare_item)
+
+    for thing in item:
+        page = thing.page
+        item_obj = thing
+
+        if page == '11street':
+            #add isEmpty here
+            scrap11street = lelong2nd.lelongScrapEngine()
+            scrap11street.scrapIt(item_obj)
+        elif page == 'Lazada Malaysia':
+            scrapLazada = lazada2nd.lazadaScrapEngine()
+            scrapLazada.scrapIt(item_obj)
+        else:
+            scraplelong = lelong2nd.lelongScrapEngine()
+            scraplelong.scrapIt(item_obj)
+
     return render(request, 'page/products_compare.html', {'item1': item})
 

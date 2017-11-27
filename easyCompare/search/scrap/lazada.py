@@ -47,7 +47,8 @@ class lazadaScrapEngine:
 																 detail='',
 																 item_link=detail_url,
 																 condition='',
-																 seller_rate='')
+																 seller_rate='',
+																 shipping='')
 				n = n + 1
 				count = count+1
 				if count==5:

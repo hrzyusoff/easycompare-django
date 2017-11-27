@@ -25,10 +25,20 @@
 	                <ul class="list-group">
                       <li class="list-group-item">E-commerce: {{ item.page }}</li>
                       <li class="list-group-item">Price: {{ item.price }}</li>
-                      <li class="list-group-item">Details: {{ item.detail }}</li>
-                      <li class="list-group-item">Item condition{{ item.condition }}</li>
+                      <li class="list-group-item">Shipping: {{ item.shipping }}</li>
+                      <li class="list-group-item">Condition: {{ item.condition }}</li>
                       <li class="list-group-item">Overall rating: {{ item.rating }}</li>
+                      <li class="list-group-item">Seller rating: {{ item.seller_rate }}</li>
+                      <li class="list-group-item">Details: {{ item.detail }}</li>
+                      <li class="list-group-item">Feedback from customers: </li>
+                        {% for feedback in item.feedback_set.all %}
+                            <ul>
+                                <li class="list-group-item">Rating: {{feedback.rating}} </li>
+                                <li class="list-group-item">Comment: {{feedback.comment}}</li>
+                            </ul>
+                        {% endfor %}
                     </ul>
+
 	            </div>
 	            <div class="price-table-button-holder">
                     <button class="btn btn-info btn-block">

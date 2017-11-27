@@ -21,6 +21,7 @@ class SearchItem(models.Model):
     detail = models.CharField(max_length=2000)
     item_link = models.CharField(max_length=250)
     condition = models.CharField(max_length=20)
+    shipping = models.CharField(max_length=100)
     seller_rate = models.CharField(max_length=100)
 
     def __str__(self):
