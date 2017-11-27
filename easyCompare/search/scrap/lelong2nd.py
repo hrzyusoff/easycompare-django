@@ -28,6 +28,26 @@ class lelongScrapEngine:
         		infoshipsl = infoclasssl[0].text.strip()
         		infoships = infoclasssl[1].text.strip()
 
+        """ new scrap """       
+        #for conditions
+        conditioncontainer = page_soup.findAll("div",{"class":"inline-block"})
+        for container in conditioncontainer:
+            itemspec = container.findAll("div",{"class":"fontsize12 pull-left paddingleft15"})
+            itemlist = itemspec[2].text #masuk model here
+            print(itemlist)
+
+        #for specs or details of product
+        speccontainer = page_soup.findAll("table",{"id":"desc-tbl"})
+        for container in speccontainer:
+            speclist = container.findAll("tr")
+            n = 0
+            limitloop = len(speclist)
+            while n != limitloop:
+                speclistfinal = speclist[n].text.strip()
+                print(speclistfinal) #masuk model here
+                n = n + 1
+        """ end of new scrap """
+
         #for supplier rating
         ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})
         for container in ratingcontainer:
@@ -41,4 +61,5 @@ class lelongScrapEngine:
             count = count + 1
             if count == 5:
                 break
+
         return
