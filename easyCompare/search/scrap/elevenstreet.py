@@ -26,13 +26,13 @@ class estreetScrapEngine:
             productdiv = container.findAll("h3", {"class": "product-name tit_info"})
             pricediv = container.findAll("strong", {"class": "rm_price new_price"})
             prodpic = container.findAll("div", {"class": "thumb"})
-            linkdirect = prodpic[n].a["href"]
-            direct_url = linkdirect
             limitloop = len(productdiv)
             while n != limitloop:
                 productnamelist = productdiv[n].a.text.strip()
                 pricetaglist = pricediv[n].text.strip()
                 prodpiclist = prodpic[n].a.img["src"]
+                linkdirect = prodpic[n].a["href"]
+                direct_url = linkdirect
                 item_instance = models.SearchItem.objects.create(page=page,
                                                                  price=pricetaglist,
                                                                  title=productnamelist,
