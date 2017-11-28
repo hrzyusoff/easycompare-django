@@ -3,7 +3,7 @@ from .models import PageCrawl, SearchItem, Feedback
 from django.shortcuts import render, get_object_or_404
 from .scrap import lazada, lazada2nd
 from .scrap import lelong, lelong2nd
-from .scrap import elevenstreet
+from .scrap import elevenstreet, elevenstreet2nd
 from django.http import Http404
 
 
@@ -48,11 +48,13 @@ def result(request):
 def details(request, item_id):
     item = get_object_or_404(SearchItem, item_id=item_id)
     page = item.page
+    page = str(page).strip()
+    print(page)
 
-    if page == '11street':
-        scrap11street = lelong2nd.lelongScrapEngine()
+    if page == "11street":
+        scrap11street = elevenstreet2nd.estreetScrapEngine()
         scrap11street.scrapIt(item)
-    elif page == 'Lazada Malaysia':
+    elif page == "Lazada Malaysia":
         scrapLazada = lazada2nd.lazadaScrapEngine()
         scrapLazada.scrapIt(item)
     else:
@@ -69,11 +71,12 @@ def specs(request):
 
     for thing in item:
         page = thing.page
+        page = str(page).strip()
         item_obj = thing
 
         if page == '11street':
             #add isEmpty here
-            scrap11street = lelong2nd.lelongScrapEngine()
+            scrap11street = elevenstreet2nd.estreetScrapEngine()
             scrap11street.scrapIt(item_obj)
         elif page == 'Lazada Malaysia':
             scrapLazada = lazada2nd.lazadaScrapEngine()

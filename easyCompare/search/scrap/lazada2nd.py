@@ -36,7 +36,7 @@ class lazadaScrapEngine:
             count = 0
             comment = container.findAll("div", {"class": "c-review__comment"})
             limitloop = len(comment)
-            while n!= limitloop:
+            while n!=limitloop:
                 item_instance = models.Feedback.objects.create(item=PID,
                                                                  rating="5",
                                                                  comment=comment)
