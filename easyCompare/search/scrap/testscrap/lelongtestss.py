@@ -36,7 +36,7 @@ conditioncontainer = page_soup.findAll("div",{"class":"inline-block"})
 for container in conditioncontainer:
 	itemspec = container.findAll("div",{"class":"fontsize12 pull-left paddingleft15"})
 	itemlist = itemspec[2].text
-	print(itemlist)
+	print(len(itemlist))
 
 #for specs or details of product
 speccontainer = page_soup.findAll("table",{"id":"desc-tbl"})
