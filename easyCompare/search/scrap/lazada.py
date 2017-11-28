@@ -34,10 +34,12 @@ class lazadaScrapEngine:
                 pricetaglist = pricediv[n].span.text.strip()
                 piclist = propicdiv[n].a.span["data-js-component-params"]
                 directlink = propicdiv[n].a["href"]
-                itemsdli = itemsddiv[n].findAll(
-                    "li")  # scrap detail, item sd refer to spec and detail, li refer to li tag
-                for container in itemsdli:
-                    specdetail = container.text.strip()
+                itemsdli = itemsddiv[n].findAll("li")
+                natang = ''
+                for container1 in itemsdli:
+                    specdetail = container1.text.strip()
+                    natang = natang + " " + specdetail
+                    print(natang)
 
                 detail_url = 'https://www.lazada.com.my' + directlink
                 lcurlyr = piclist.replace("{", "")
@@ -50,7 +52,7 @@ class lazadaScrapEngine:
                                                                  title=productnamelist,
                                                                  pic=allr,
                                                                  rating=0,
-                                                                 detail=specdetail,
+                                                                 detail=natang,
                                                                  item_link=detail_url,
                                                                  condition='',
                                                                  seller_rate='',

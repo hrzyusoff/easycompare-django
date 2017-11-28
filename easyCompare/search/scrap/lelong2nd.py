@@ -65,15 +65,15 @@ class lelongScrapEngine:
 
             item.save()
 
-        #for supplier rating
-        ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})
+        #for feedback
+        ratingcontainer = page_soup.findAll("div", {"class": "ui-box-body"})
         for container in ratingcontainer:
             count = 0
             inforating = container.findAll("div", {"class": "fontsize12"})
             rateinfo = inforating[1].b.a.text
             item_instance = models.Feedback.objects.create(item_id=pID,
                                                            rating="5",
-                                                           comment=inforating)
+                                                           comment=rateinfo)
 
             count = count + 1
             if count == 5:
