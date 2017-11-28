@@ -54,4 +54,45 @@ class lazadaScrapEngine:
                 if count == 5:
                     break
 
+<<<<<<< HEAD
         return
+=======
+		for container in mainbigcontainer:
+			n = 0
+			count = 0
+			productdiv = container.findAll("div",{"class":"c-product-card__description"})
+			pricediv = container.findAll("div",{"class":"c-product-card__price"})
+			propicdiv = container.findAll("div",{"class":"c-product-card__img-placeholder"})
+			itemsddiv = container.findAll("ul",{"class":"c-product-card__attributes"}) #sd refer to spec and detail
+			limitloop = len(productdiv)
+			while n!= limitloop:
+				productnamelist = productdiv[n].a.text.strip()
+				pricetaglist = pricediv[n].span.text.strip()
+				piclist = propicdiv[n].a.span["data-js-component-params"]
+				directlink = propicdiv[n].a["href"]
+				itemsdli = itemsddiv[n].findAll("li") # scrap detail, item sd refer to spec and detail, li refer to li tag
+				for container in itemsdli:
+					specdetail = container.text.strip()
+				detail_url = 'https://www.lazada.com.my' + directlink
+				lcurlyr = piclist.replace("{","")
+				rcurlyr = lcurlyr.replace("}","")
+				srcr = rcurlyr.replace('"src"',"")
+				twodotr = srcr.replace(': "',"")
+				allr = twodotr.replace('"',"").strip()
+				item_instance = models.SearchItem.objects.create(page=page,
+																 price=pricetaglist,
+																 title=productnamelist,
+																 pic=allr,
+																 rating=0,
+																 detail=specdetail,
+																 item_link=detail_url,
+																 condition='',
+																 seller_rate='',
+																 shipping='')
+				n = n + 1
+				count = count+1
+				if count==5:
+					break
+		
+		return
+>>>>>>> b3f6600bbbc6c819beef92e93b1d27edde91ec8b
