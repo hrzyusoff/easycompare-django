@@ -43,12 +43,14 @@ class lelongScrapEngine:
             print("Seller Rating : " + inforating[1].b.a.text)
             item.seller_rate = inforating[1].b.a.text
 
+
         #for conditions
         conditioncontainer = page_soup.findAll("div", {"class":"inline-block"})
         for container in conditioncontainer:
             itemspec = container.findAll("div", {"class":"fontsize12 pull-left paddingleft15"})
             itemlist = itemspec[2].text
             item.condition = itemlist
+
 
         #for specs or details of product
         speccontainer = page_soup.findAll("table", {"id":"desc-tbl"})
@@ -60,6 +62,8 @@ class lelongScrapEngine:
                 speclistfinal = speclist[n].text.strip()
                 item.detail = speclistfinal
                 n = n + 1
+
+            item.save()
 
         #for supplier rating
         ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})

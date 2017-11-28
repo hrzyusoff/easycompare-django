@@ -19,7 +19,7 @@ class lazadaScrapEngine:
         mainbigcontainer = page_soup.findAll("div", {"class": "c-review-list_js_inited"})
 
         # spec/detail of product
-        itemspec = page.soup.findAll("ul", {"class": "display-table"})
+        itemspec = page_soup.findAll("ul", {"class": "display-table"})
         for container in itemspec:
             print("spec:" + container.text.strip())
 
