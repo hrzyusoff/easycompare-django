@@ -9,8 +9,7 @@ class lazadaScrapEngine:
     def scrapIt(self, item):
         my_url = item.item_link
 
-        PID = get_object_or_404(models.SearchItem,
-                                item_id=item.item_id)  # driver=webdriver.Chrome("C:/Users/HRZ/Downloads/Compressed/chromedriver/chromedriver.exe")
+        PID = get_object_or_404(models.SearchItem, item_id=item.item_id)
         chromepath = "C:/Users/HRZ/Downloads/Compressed/chromedriver/chromedriver.exe"
         driver = webdriver.Chrome(chromepath)
 
@@ -22,7 +21,9 @@ class lazadaScrapEngine:
         hidelist = page_soup.findAll("div", {"class", "c-review__comment"})
         limitloop = len(hidelist)
         commentars = ""
+        # print("Natang")
         for hide in hidelist:
+            print("Natang")
             n = 0
             commentar = hide.text.strip()
             commentars = commentars + commentar
@@ -30,7 +31,7 @@ class lazadaScrapEngine:
 
         item_instance = models.Feedback.objects.create(item=PID,
                                                        rating="5",
-                                                       comment=commentars)
+                                                       comment="Natang brekmok")
 
         driver.close()
         return
