@@ -29,7 +29,7 @@ class lelongScrapEngine:
                                                              price=pricetaglist,
                                                              title=productnamelist,
                                                              pic=piclist,
-                                                             rating=0,
+                                                             rating='',
                                                              detail=' ',
                                                              item_link=direct_url,
                                                              condition='',
