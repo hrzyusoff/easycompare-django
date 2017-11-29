@@ -37,7 +37,7 @@ class estreetScrapEngine:
                                                                  price=pricetaglist,
                                                                  title=productnamelist,
                                                                  pic=prodpiclist,
-                                                                 rating=0,
+                                                                 rating='',
                                                                  detail=' ',
                                                                  item_link=direct_url,
                                                                  condition='',

@@ -38,7 +38,7 @@ class lazadaScrapEngine:
                 natang = ''
                 for container1 in itemsdli:
                     specdetail = container1.text.strip()
-                    natang = natang + " " + specdetail
+                    natang = natang + " " + specdetail + "\n"
 
                 detail_url = 'https://www.lazada.com.my' + directlink
                 lcurlyr = piclist.replace("{", "")
