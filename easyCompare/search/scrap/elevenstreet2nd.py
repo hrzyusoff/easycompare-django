@@ -22,12 +22,10 @@ class estreetScrapEngine:
             rateitem = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
             #for container in rateitem:
             rateitemval = rateitem.span["content"]
-            print("Rate Item:" + rateitemval)
-            item.rating = rateitemval
+            item.rating = rateitemval + "/5"
             item.save()
         except Exception as noRating:
             rateitemval = 'No rating'
-            print("Rate Item:" + rateitemval)
             item.rating = rateitemval
             item.save()
 

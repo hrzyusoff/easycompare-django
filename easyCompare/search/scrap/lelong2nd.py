@@ -74,6 +74,7 @@ class lelongScrapEngine:
             item_instance = models.Feedback.objects.create(item_id=pID,
                                                            rating="5",
                                                            comment=rateinfo)
+            item.save()
 
             count = count + 1
             if count == 5:
