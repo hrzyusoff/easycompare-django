@@ -4,7 +4,8 @@ import requests
 #url of site to scrap
 my_url = 'http://www.11street.my/productdetail/gigabyte-aorus-gtx1060-6gb-9gbps-gddr5-xtreme-52247327'
 headers = {'User-Agent':'Mozilla/5.0'}
-page = requests.get(my_url)
+page = requests.cd easycompare \
+	(my_url)
 page_soup = soup(page.text, "html.parser")
 
 #item spec

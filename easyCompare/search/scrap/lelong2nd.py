@@ -48,7 +48,15 @@ class lelongScrapEngine:
         conditioncontainer = page_soup.findAll("div", {"class":"inline-block"})
         for container in conditioncontainer:
             itemspec = container.findAll("div", {"class":"fontsize12 pull-left paddingleft15"})
-            itemlist = itemspec[2].text
+
+            try:
+                try:
+                    itemlist = itemspec[2].text
+                except Exception:
+                    itemlist = itemspec[1].text
+            except IndexError:
+                itemlist = 'not available'
+
             item.condition = itemlist
 
 
@@ -70,7 +78,11 @@ class lelongScrapEngine:
         for container in ratingcontainer:
             count = 0
             inforating = container.findAll("div", {"class": "fontsize12"})
-            rateinfo = inforating[1].b.a.text
+            try:
+                rateinfo = inforating[1].b.a.text
+            except IndexError:
+                rateinfo = ''
+
             item_instance = models.Feedback.objects.create(item_id=pID,
                                                            rating="5",
                                                            comment=rateinfo)
