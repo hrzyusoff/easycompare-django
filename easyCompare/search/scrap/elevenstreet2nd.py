@@ -17,8 +17,18 @@ class estreetScrapEngine:
             item.detail = container.text.strip()
             print(item.detail)
 
-        rateitem = page_soup.findAll("div", {"class": "product-ranking-star sprites star5"})
-        for container in rateitem:
-            rateitemval = container.span["content"]
+        # add exception nonetype
+        try:
+            rateitem = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
+            #for container in rateitem:
+            rateitemval = rateitem.span["content"]
             print("Rate Item:" + rateitemval)
+            item.rating = rateitemval
+            item.save()
+        except Exception as noRating:
+            rateitemval = 'No rating'
+            print("Rate Item:" + rateitemval)
+            item.rating = rateitemval
+            item.save()
+
         return
