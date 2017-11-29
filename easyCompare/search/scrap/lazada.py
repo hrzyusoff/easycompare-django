@@ -35,12 +35,12 @@ class lazadaScrapEngine:
                 piclist = propicdiv[n].a.span["data-js-component-params"]
                 directlink = propicdiv[n].a["href"]
                 itemsdli = itemsddiv[n].findAll("li")
-                natang = ''
+                natang = ""
                 for container1 in itemsdli:
                     specdetail = container1.text.strip()
-                    natang = natang + " " + specdetail
-                    print(natang)
+                    natang = natang + " \n" + specdetail
 
+                print(natang)
                 detail_url = 'https://www.lazada.com.my' + directlink
                 lcurlyr = piclist.replace("{", "")
                 rcurlyr = lcurlyr.replace("}", "")
