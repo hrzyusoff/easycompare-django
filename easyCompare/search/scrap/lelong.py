@@ -17,6 +17,12 @@ class lelongScrapEngine:
 
         count = 0
         for container in bigcontainer:
+            reviewdiv = container.findAll("i", {"class": "prev-review-star fa fa-star"})
+            reviewstar = len(reviewdiv)
+            if reviewstar == 0:
+                reviewitem = "No rating for this item"
+            else:
+                reviewitem = str(reviewstar)
             productname = container.findAll("div", {"class": "summary"})
             pricetag = container.findAll("span", {"class": "price pull-right"})
             productpic = container.findAll("div", {"class": "pic-box"})
@@ -29,8 +35,8 @@ class lelongScrapEngine:
                                                              price=pricetaglist,
                                                              title=productnamelist,
                                                              pic=piclist,
-                                                             rating='',
-                                                             detail=' ',
+                                                             rating=reviewitem,
+                                                             detail='',
                                                              item_link=direct_url,
                                                              condition='',
                                                              seller_rate='',
