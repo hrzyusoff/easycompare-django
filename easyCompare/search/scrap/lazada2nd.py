@@ -18,16 +18,24 @@ class lazadaScrapEngine:
 
         page = driver.page_source
         page_soup = soup(page, "html.parser")
-        hidelist = page_soup.findAll("div", {"class", "c-review__comment"})
-        limitloop = len(hidelist)
+        maincontainer = page_soup.findAll("div", {"class": "product-description__block"})
 
-        for hide in hidelist:
-            commentar = hide.text.strip()
-            if commentar == '':
-                commentar = 'No preview given'
-            item_instance = models.Feedback.objects.create(item_id=PID,
-                                                           rating="5",
-                                                           comment=commentar)
+        # for rate of item in their respective page
+        rateproddiv = page_soup.find("div", {"class", "c-rating-total__text-rating-average"})
+        rateprodval = rateproddiv.em.text
+
+        # for comment of item in their respective page
+        for container in maincontainer:
+            custcomment = page_soup.findAll("div", {"class", "c-review__comment"})
+            limitloop = len(custcomment)
+            n = 0
+            while n!= limitloop:
+                commentlist = container[n].text.strip()
+                if commentlist == '':
+                    commentlist = 'No preview given'
+                item_instance = models.Feedback.objects.create(item_id=PID,
+                                                               rating=rateprodval,
+                                                               comment=commentlist)
 
         driver.close()
         return
