@@ -23,6 +23,7 @@ class lelongScrapEngine:
                 reviewitem = "No rating for this item"
             else:
                 reviewitem = str(reviewstar)
+
             productname = container.findAll("div", {"class": "summary"})
             pricetag = container.findAll("span", {"class": "price pull-right"})
             productpic = container.findAll("div", {"class": "pic-box"})

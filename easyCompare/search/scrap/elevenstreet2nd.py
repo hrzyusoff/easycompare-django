@@ -12,12 +12,13 @@ class estreetScrapEngine:
         page = requests.get(my_url)
         page_soup = soup(page.text, "html.parser")
 
+        #product detail
         itemspec = page_soup.findAll("ul", {"class": "display-table"})
         for container in itemspec:
             item.detail = container.text.strip()
             print(item.detail)
 
-        # add exception nonetype
+        #overall rating
         try:
             rateitem = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
             #for container in rateitem:
