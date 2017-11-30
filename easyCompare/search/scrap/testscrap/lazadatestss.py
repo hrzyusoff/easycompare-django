@@ -1,15 +1,26 @@
 from bs4 import BeautifulSoup as soup
+from selenium import webdriver
 import requests
 
-my_url = 'https://www.lazada.com.my/lenovo-thinkpad-carbon-x1-c5-20hqa07fmy-notebook-intel-i7-16gb-512gb-ssd-intel-hd-66325180.html'
-headers = {'User-Agent':'Mozilla/5.0'}
-page = requests.get(my_url)
-page_soup = soup(page.text, "html.parser")
+#selenium
+chromepath = "C:/Users/HRZ/Downloads/Compressed/chromedriver/chromedriver.exe"
+driver = webdriver.Chrome(chromepath)
+driver.get("https://www.lazada.com.my/whiskas-mackerel-12kg-17473990.html")
 
-detailsdiv = page_soup.findAll("div",{"id","prd-detail-page"})
+page = driver.page_source
+page_soup = soup(page,"html.parser")
 
-for rateseller in detailsdiv:
-	ratingcontainer = rateseller[0].findAll("li")
-	print(rateseller.text.strip())
+maincontainer = page_soup.findAll("div",{"class":"product-description__block"})
+productrate = page_soup.find("div",{"class","c-rating-total__text-rating-average"})
+print(productrate.em.text)
+for container in maincontainer:
+	custcomment = container.findAll("div",{"class","c-review__comment"})
 
+	limitloop = len(custcomment)
+	n = 0
+	while n!= limitloop:
+		commentlist = custcomment[n].text.strip()
+		print(n, commentlist)
+		n=n+1
 
+driver.close()
