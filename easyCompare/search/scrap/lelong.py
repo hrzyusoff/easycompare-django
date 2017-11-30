@@ -22,7 +22,7 @@ class lelongScrapEngine:
             if reviewstar == 0:
                 reviewitem = "No rating for this item"
             else:
-                reviewitem = str(reviewstar)
+                reviewitem = str(reviewstar) + " out of 5"
 
             productname = container.findAll("div", {"class": "summary"})
             pricetag = container.findAll("span", {"class": "price pull-right"})

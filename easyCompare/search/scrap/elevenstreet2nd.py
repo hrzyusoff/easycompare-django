@@ -12,14 +12,8 @@ class estreetScrapEngine:
         page = requests.get(my_url)
         page_soup = soup(page.text, "html.parser")
 
-<<<<<<< HEAD
-        #product detail
-        itemspec = page_soup.findAll("ul", {"class": "display-table"})
-        for container in itemspec:
-=======
         prodspeccontainer = page_soup.findAll("ul", {"class": "display-table"})
         for container in prodspeccontainer:
->>>>>>> 4e413d7d96123cac4e1bc47d3761c4afe2a34a23
             item.detail = container.text.strip()
             print(item.detail)
 
@@ -30,7 +24,7 @@ class estreetScrapEngine:
             rateprodval = rateproddiv.span["content"]
             item.rating = rateprodval + "/5"
             item.save()
-        except Exception as noRating:
+        except Exception:
             rateprodval = 'No rating'
             item.rating = rateprodval
             item.save()

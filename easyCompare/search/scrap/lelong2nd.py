@@ -90,7 +90,6 @@ class lelongScrapEngine:
                 rateinfo = 'No review yet'
 
             item_instance = models.Feedback.objects.create(item_id=pID,
-                                                           rating="5",
                                                            comment=rateinfo)
             item.save()
 

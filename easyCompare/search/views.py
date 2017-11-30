@@ -78,7 +78,7 @@ def specs(request):
         item_obj = thing
 
         if page == '11street':
-            #add isEmpty here
+            #add isEmpty here to avoid duplicate in model
             scrap11street = elevenstreet2nd.estreetScrapEngine()
             scrap11street.scrapIt(item_obj)
         elif page == 'Lazada Malaysia':
