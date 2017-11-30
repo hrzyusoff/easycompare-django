@@ -40,22 +40,27 @@ class lelongScrapEngine:
         ratingcontainer = page_soup.findAll("div", {"class": "seller-info-wrap"})
         for container in ratingcontainer:
             inforating = container.findAll("div", {"class": "fontsize12"})
-            print("Seller Rating : " + inforating[1].b.a.text)
-            item.seller_rate = inforating[1].b.a.text
+            try:
+                item.seller_rate = inforating[1].b.a.text
+            except Exception:
+                item.seller_rate = 'Not Available'
 
 
         #for conditions
         conditioncontainer = page_soup.findAll("div", {"class":"inline-block"})
         for container in conditioncontainer:
-            itemspec = container.findAll("div", {"class":"fontsize12 pull-left paddingleft15"})
+            itemspec = container.findAll("div", {"class": "fontsize12 pull-left paddingleft15"})
 
             try:
                 try:
-                    itemlist = itemspec[2].text
+                    try:
+                        itemlist = itemspec[2].text
+                    except Exception:
+                        itemlist = itemspec[1].text
                 except Exception:
-                    itemlist = itemspec[1].text
+                    itemlist = itemspec[0].text
             except IndexError:
-                itemlist = 'not available'
+                itemlist = 'Not available'
 
             item.condition = itemlist
 
@@ -77,11 +82,12 @@ class lelongScrapEngine:
         ratingcontainer = page_soup.findAll("div", {"class": "ui-box-body"})
         for container in ratingcontainer:
             count = 0
+            #error - no value scraped
             inforating = container.findAll("div", {"class": "fontsize12"})
             try:
                 rateinfo = inforating[1].b.a.text
             except IndexError:
-                rateinfo = ''
+                rateinfo = 'No review yet'
 
             item_instance = models.Feedback.objects.create(item_id=pID,
                                                            rating="5",
