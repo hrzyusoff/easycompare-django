@@ -82,15 +82,16 @@ class lelongScrapEngine:
         ratingcontainer = page_soup.findAll("div", {"class": "ui-box-body"})
         for container in ratingcontainer:
             count = 0
+            #customer review
             #error - no value scraped
             inforating = container.findAll("div", {"class": "fontsize12"})
             try:
-                rateinfo = inforating[1].b.a.text
+                cus_review = inforating[1].b.a.text
             except IndexError:
-                rateinfo = 'No review yet'
+                cus_review = 'No review yet'
 
             item_instance = models.Feedback.objects.create(item_id=pID,
-                                                           comment=rateinfo)
+                                                           comment=cus_review)
             item.save()
 
             count = count + 1

@@ -20,6 +20,14 @@ class estreetScrapEngine:
 
         page = get_object_or_404(models.PageCrawl, pk=8)
 
+        # overall rating
+        try:
+            rateproddiv = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
+            rateprodval = rateproddiv.span["content"]
+            rating = rateprodval + "out of 5"
+        except Exception:
+            rating = 'No rating'
+
         for container in maincontainer:
             n = 0
             count = 0
@@ -37,7 +45,7 @@ class estreetScrapEngine:
                                                                  price=pricetaglist,
                                                                  title=productnamelist,
                                                                  pic=prodpiclist,
-                                                                 rating='',
+                                                                 rating=rating,
                                                                  detail=' ',
                                                                  item_link=direct_url,
                                                                  condition='',

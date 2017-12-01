@@ -33,8 +33,7 @@
                       <li class="list-group-item">Feedback from customers: </li>
                         {% for feedback in item.feedback_set.all %}
                             <ul>
-                                <li class="list-group-item">Rating: {{feedback.rating}} </li>
-                                <li class="list-group-item">Comment: {{feedback.comment}}</li>
+                                <li class="list-group-item"> - {{feedback.comment}}</li>
                             </ul>
                         {% endfor %}
                     </ul>

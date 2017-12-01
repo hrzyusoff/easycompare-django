@@ -16,17 +16,6 @@ class estreetScrapEngine:
         for container in prodspeccontainer:
             item.detail = container.text.strip()
             print(item.detail)
-
-        #overall rating
-        try:
-            rateproddiv = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
-            #for container in rateitem:
-            rateprodval = rateproddiv.span["content"]
-            item.rating = rateprodval + "/5"
-            item.save()
-        except Exception:
-            rateprodval = 'No rating'
-            item.rating = rateprodval
             item.save()
 
         return

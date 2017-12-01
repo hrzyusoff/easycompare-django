@@ -18,11 +18,11 @@ class lazadaScrapEngine:
         page_soup = soup(page, "html.parser")
 
         # for rate of item in their respective page
-        rateprodval = page_soup.find("div", {"class", "c-rating-total__text-rating-average"})
-        if rateprodval == '':
-            item.rating = 'No rating'
-        else:
-            item.rating = rateprodval + "/5"
+        try:
+            rateprodval = page_soup.find("div", {"class", "c-rating-total__text-rating-average"})
+            item.rating = str(rateprodval.em.text) + "/5"
+        except Exception:
+            item.rating = "No rating"
 
         # for comment of item in their respective page
         commentdiv = page_soup.findAll("div", {"class", "c-review__comment"})

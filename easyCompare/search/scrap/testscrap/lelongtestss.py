@@ -49,4 +49,4 @@ page_soup = soup(page.text, "html.parser")
 #         print(speclist[n].text.strip())
 #         n = n + 1
 
-#note: no review and rating for each review
+#note: no review for each review

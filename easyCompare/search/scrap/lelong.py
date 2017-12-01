@@ -20,7 +20,7 @@ class lelongScrapEngine:
             reviewdiv = container.findAll("i", {"class": "prev-review-star fa fa-star"})
             reviewstar = len(reviewdiv)
             if reviewstar == 0:
-                reviewitem = "No rating for this item"
+                reviewitem = "No rating"
             else:
                 reviewitem = str(reviewstar) + " out of 5"
 
