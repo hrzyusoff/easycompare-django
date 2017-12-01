@@ -12,6 +12,14 @@ class estreetScrapEngine:
         page = requests.get(my_url)
         page_soup = soup(page.text, "html.parser")
 
+        # seller rating
+        sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
+        for rate in sellerContainer:
+            seller = rate.page_soup.findAll("dl", {"class": "product-detail-seller"})
+            rating = seller[1].em.text
+            print(rating)
+
+
         prodspeccontainer = page_soup.findAll("ul", {"class": "display-table"})
         for container in prodspeccontainer:
             item.detail = container.text.strip()

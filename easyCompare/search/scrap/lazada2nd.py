@@ -17,6 +17,17 @@ class lazadaScrapEngine:
         page = driver.page_source
         page_soup = soup(page, "html.parser")
 
+        #seller rating
+        try:
+            seller = page_soup.find("div", {"class", "c-positive-seller-ratings c-positive-seller-ratings_state_high"})
+            seller = seller.text
+            item.seller_rate = str(seller).replace(" ", "").strip()
+            item.seller_rate = item.seller_rate.replace('"', "") + "%"
+            item.save()
+        except Exception:
+            item.seller_rate = 'No Seller rating'
+            item.save()
+
         # for rate of item in their respective page
         try:
             rateprodval = page_soup.find("div", {"class", "c-rating-total__text-rating-average"})

@@ -40,7 +40,6 @@ class lazadaScrapEngine:
                     specdetail = container1.text.strip()
                     item_detail = item_detail + specdetail
 
-
                 detail_url = 'https://www.lazada.com.my' + directlink
                 lcurlyr = piclist.replace("{", "")
                 rcurlyr = lcurlyr.replace("}", "")
