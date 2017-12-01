@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup as soup
+from selenium import webdriver
 from django.shortcuts import render, get_object_or_404
 from search import models
 import requests
@@ -8,11 +9,26 @@ class estreetScrapEngine:
     def scrapIt(self, item):
         my_url = item.item_link
 
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        page = requests.get(my_url)
-        page_soup = soup(page.text, "html.parser")
+        # headers = {'User-Agent': 'Mozilla/5.0'}
+        # page = requests.get(my_url)
+        # page_soup = soup(page.text, "html.parser")
 
-        #condition
+        webdriverpath = "C:/webdriver/phantomjs.exe"
+        driver = webdriver.PhantomJS(webdriverpath)
+        driver.get(my_url)
+
+        page = driver.page_source
+        page_soup = soup(page, "html.parser")
+
+        # seller rate
+        sellerate = page_soup.find("dl", {"class", "product-detail-seller"})
+        item.seller_rate = sellerate.em.text.strip()
+
+        # ship info
+        shipinfo = page_soup.find("dl", {"class", "detail-shipping-price-list"})
+        item.shipping = shipinfo.text.strip()
+
+        # condition
         try:
             cond = page_soup.find("li", {"class": "product-status"})
             item.condition = cond.text
@@ -26,7 +42,7 @@ class estreetScrapEngine:
         # seller = page_soup.findAll("dl", {"class": "product-detail-seller"})
         # #item.rating = seller[0].dd.em.text
 
-        #product detail
+        # product detail
         try:
             info = ''
             prodspeccontainer = page_soup.findAll("div", {"class": "product-detail-info-block"})
@@ -44,6 +60,5 @@ class estreetScrapEngine:
         except Exception:
             item.detail = 'No detail provided by seller of this product'
             item.save()
-
 
         return

@@ -10,12 +10,19 @@ class lazadaScrapEngine:
         my_url = item.item_link
         PID = get_object_or_404(models.SearchItem, item_id=item.item_id)
 
-        chromepath = "C:/webdriver/chromedriver.exe"
-        driver = webdriver.Chrome(chromepath)
+        webdriverpath = "C:/webdriver/phantomjs.exe"
+        driver = webdriver.PhantomJS(webdriverpath)
         driver.get(my_url)
 
         page = driver.page_source
         page_soup = soup(page, "html.parser")
+
+        #shipping
+        try:
+            shipinfo = page_soup.find("div", {"class": "c-delivery-option__price"})
+            item.shipping = shipinfo.text
+        except Exception:
+            item.shipping = "No shipping info"
 
         #seller rating
         try:
