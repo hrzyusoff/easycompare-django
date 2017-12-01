@@ -37,13 +37,16 @@ class lazadaScrapEngine:
 
         # for comment of item in their respective page
         commentdiv = page_soup.findAll("div", {"class", "c-review__comment"})
-        limitloop = len(commentdiv)
+        count = 0
         for container in commentdiv:
             commentlist = container.text.strip()
             if commentlist == '':
                 commentlist = 'No review given'
             item_instance = models.Feedback.objects.create(item_id=PID,
                                                            comment=commentlist)
+            count = count + 1
+            if count == 5:
+                break
 
         driver.close()
         return

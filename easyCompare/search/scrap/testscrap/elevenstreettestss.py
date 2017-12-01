@@ -1,17 +1,19 @@
 from bs4 import BeautifulSoup as soup
 import requests
 
-#url of site to scrap
-# my_url = 'http://www.11street.my/productdetail/gigabyte-aorus-gtx1060-6gb-9gbps-gddr5-xtreme-52247327'
-# headers = {'User-Agent':'Mozilla/5.0'}
-# page = requests.cd easycompare \
-# 	(my_url)
-# page_soup = soup(page.text, "html.parser")
+my_url = "http://www.11street.my/productdetail/apple-iphone-6-32gb-gold-official-malaysia-apple-1-50627677#product-detail-info"
 
-#item spec
-itemspec = page_soup.findAll("ul",{"class":"display-table"})
-for container in itemspec:
-	print("Specs:"+container.text.strip())
+headers = {'User-Agent': 'Mozilla/5.0'}
+page = requests.get(my_url)
+page_soup = soup(page.text, "html.parser")
+
+# seller rating
+# sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
+
+seller = page_soup.find("div", {"class": "aside-section-content"})
+# for container in seller:
+# rating = seller[0].dd.em.text
+print(seller)
 
 #item rate 
 # rateitem = page_soup.findAll("div",{"class":"product-ranking-star sprites star5"})
@@ -20,3 +22,16 @@ for container in itemspec:
 # 	print("Rate Item:"+rateitemval)
 
 
+info = ''
+prodspeccontainer = page_soup.findAll("div", {"class": "product-detail-info-block"})
+n = 0
+for container in prodspeccontainer:
+    tag = container.findAll("p")
+    length = len(tag)
+    print(length)
+    while n != length:
+        spec = tag[n].text.strip()
+        info = info + str(spec)
+        n = n+1
+
+print(info)

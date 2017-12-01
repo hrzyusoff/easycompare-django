@@ -12,18 +12,38 @@ class estreetScrapEngine:
         page = requests.get(my_url)
         page_soup = soup(page.text, "html.parser")
 
-        # seller rating
-        sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
-        for rate in sellerContainer:
-            seller = rate.page_soup.findAll("dl", {"class": "product-detail-seller"})
-            rating = seller[1].em.text
-            print(rating)
+        #condition
+        try:
+            cond = page_soup.find("li", {"class": "product-status"})
+            item.condition = cond.text
+        except Exception as error:
+            item.condition = 'Not available'
 
+        item.save()
 
-        prodspeccontainer = page_soup.findAll("ul", {"class": "display-table"})
-        for container in prodspeccontainer:
-            item.detail = container.text.strip()
-            print(item.detail)
+        # # seller rating - selenium
+        # sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
+        # seller = page_soup.findAll("dl", {"class": "product-detail-seller"})
+        # #item.rating = seller[0].dd.em.text
+
+        #product detail
+        try:
+            info = ''
+            prodspeccontainer = page_soup.findAll("div", {"class": "product-detail-info-block"})
+            n = 0
+            for container in prodspeccontainer:
+                tag = container.findAll("p")
+                length = len(tag)
+                while n != length:
+                    spec = tag[n].text.strip()
+                    info = info + str(spec) + " \n"
+                    n = n + 1
+
+            item.detail = info
             item.save()
+        except Exception:
+            item.detail = 'No detail provided by seller of this product'
+            item.save()
+
 
         return

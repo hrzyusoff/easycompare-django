@@ -3,7 +3,7 @@ import requests
 
 # my_url = 'https://www.lelong.com.my/cooler-master-masterliquid-lite-120-aio-cpu-liquid-cooler-am4-ready-netstorecommy-192231419-2018-05-Sale-P.htm'
 # my_url = 'https://www.lelong.com.my/apple-iphone-x-64gb-rom-256gb-rom-original-apple-malaysia-set-mobile2go-I5795234-2007-01-Sale-I.htm'
-my_url = 'https://www.lelong.com.my/msi-geforce-gtx-1080-ti-lightning-x-1080ti-graphics-card-netstorecommy-198163646-2018-11-Sale-P.htm?list_type=sfi'
+my_url = 'https://www.lelong.com.my/promo-logitech-g29-driving-force-race-wheel-g-driving-force-shifter-netstorecommy-I5618030-2007-01-Sale-I.htm'
 
 headers = {'User-Agent': 'Mozilla/5.0'}
 page = requests.get(my_url)
@@ -49,4 +49,20 @@ page_soup = soup(page.text, "html.parser")
 #         print(speclist[n].text.strip())
 #         n = n + 1
 
-#note: no review for each review
+
+
+for item in page_soup.findAll("div", {"class": "ui-box-body"}):
+    for data in item.findAll("tr"):
+        rating = data.findAll("td")
+        review = rating[3].text.strip()
+        # print(review)
+
+        # print(len(rating))
+        # while n != len(rating):
+        #     comment = rating[n]
+        #     print(comment)
+        #     n = n + 4
+
+        # for last in rating:
+        #     comment = last[3].text
+        #     print(comment)

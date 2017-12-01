@@ -55,10 +55,13 @@ class lelongScrapEngine:
                 try:
                     try:
                         itemlist = itemspec[2].text
+                        itemlist = itemlist.replace("Conditions :", "").strip()
                     except Exception:
                         itemlist = itemspec[1].text
+                        itemlist = itemlist.replace("Conditions :", "").strip()
                 except Exception:
                     itemlist = itemspec[0].text
+                    itemlist = itemlist.replace("Conditions :", "").strip()
             except IndexError:
                 itemlist = 'Not available'
 
@@ -79,23 +82,23 @@ class lelongScrapEngine:
             item.save()
 
         #for feedback
-        ratingcontainer = page_soup.findAll("div", {"class": "ui-box-body"})
-        for container in ratingcontainer:
-            count = 0
-            #customer review
-            #error - no value scraped
-            inforating = container.findAll("div", {"class": "fontsize12"})
-            try:
-                cus_review = inforating[1].b.a.text
-            except IndexError:
-                cus_review = 'No review yet'
+        count = 0
+        for item in page_soup.findAll("div", {"class": "ui-box-body"}):
+            for data in item.findAll("tr"):
+                rating = data.findAll("td")
+                try:
+                    review = rating[3].text.strip()
+                    if review == 'Ratings':
+                        continue
+                    elif review == '-':
+                        continue
+                    item_instance = models.Feedback.objects.create(item_id=pID,
+                                                                   comment=review)
+                except IndexError:
+                    review = 'no review'
 
-            item_instance = models.Feedback.objects.create(item_id=pID,
-                                                           comment=cus_review)
-            item.save()
-
-            count = count + 1
-            if count == 5:
-                break
+                count = count + 1
+                if count == 5:
+                    break
 
         return
