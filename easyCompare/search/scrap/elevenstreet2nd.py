@@ -21,12 +21,17 @@ class estreetScrapEngine:
         page_soup = soup(page, "html.parser")
 
         # seller rate
-        sellerate = page_soup.find("dl", {"class", "product-detail-seller"})
-        item.seller_rate = sellerate.em.text.strip()
-
+        try:
+            sellerate = page_soup.find("dl", {"class", "product-detail-seller"})
+            item.seller_rate = sellerate.em.text.strip()
+        except Exception:
+            item.seller_rate = "Not available"
         # ship info
-        shipinfo = page_soup.find("dl", {"class", "detail-shipping-price-list"})
-        item.shipping = shipinfo.text.strip()
+        try:
+            shipinfo = page_soup.find("dl", {"class", "detail-shipping-price-list"})
+            item.shipping = shipinfo.text.strip()
+        except Exception:
+            item.shipping = "Not available"
 
         # condition
         try:
