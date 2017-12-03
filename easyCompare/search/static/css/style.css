@@ -269,12 +269,9 @@ a:hover,a:focus {
 	-moz-transition:all .3s ease-in-out;
 	transition:all .3s ease-in-out;
 }
-.btn-buy-now{
-	clear: left;
-}
-.btn-compare, .btn-buy-now{
+
+.btn-compare, .btn-get-now{
 	font-family:'Black';
-	display: inline;
 }
 .btn-compare{
 	margin: 0px 0px 20px 0px;
@@ -282,15 +279,12 @@ a:hover,a:focus {
 	color: white;
 }
 .btn-compare:hover{
-	background-color: #9b2f2f;
+	background-color: #4ba341;
 }
-.btn-compare, .btn-compare:hover, .btn-buy-now, .btn-buy-now:hover{
+.btn-compare, .btn-compare:hover, .btn-get-now, .btn-get-now:hover{
 	border-color: transparent;
 }
-.btn-buy-now{
-	background-color: #72bc68;
-}
-.btn-buy-now:hover{
+.btn-get-now:hover{
 	background-color: #4ba341;
 	color: white;
 }
@@ -585,6 +579,27 @@ input[type=checkbox], .custom-checkbox{
 }
 .img-pointer{
 	cursor: pointer;
+}
+.img-circle-fixed{
+	width: 250px;
+	height: 250px;
+}
+.caption{
+	margin: 10px 0 10px 0;
+	padding: 10%;
+	background-color: red;
+	width: auto;
+	height: 140px;
+	overflow: hidden;
+	/*display: inline-block;*/
+	border-radius: 5px;
+}
+.font-bold{
+	font-family: 'Bold';
+	font-size: 16px;
+}
+.ecomm-style{
+	borde: 1px solid blue;
 }
 /*.test-div{
 	border: 1px solid red;

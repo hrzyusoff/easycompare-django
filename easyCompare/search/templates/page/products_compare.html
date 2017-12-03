@@ -14,16 +14,15 @@
 			<div class="col-md-4 well pricing-table">
 	            <div class="pricing-table-holder">
 	                <center>
-	                    <img src="{{ item.pic }}" class="img-responsive img-circle" alt="">
-	                    <h3> </h3>
-	                    <p class="caption">
-	                        {{ item.title }}
-	                    </p>
+	                    <img src="{{ item.pic }}" class="img-responsive img-circle img-circle-fixed" alt="">
 	                </center>
+	            </div>
+	            <div class="caption text-center">
+	                <p class="font-bold align-middle">{{ item.title }}</p>
 	            </div>
 	            <div class="pricing-feature-list">
 	                <ul class="list-group">
-                      <li class="list-group-item">E-commerce: {{ item.page }}</li>
+                      <li class="list-group-item"><div class="ecomm-style">E-commerce: {{ item.page }}</div></li>
                       <li class="list-group-item">Price: {{ item.price }}</li>
                       <li class="list-group-item">Shipping: {{ item.shipping }}</li>
                       <li class="list-group-item">Condition: {{ item.condition }}</li>
@@ -40,7 +39,7 @@
 
 	            </div>
 	            <div class="price-table-button-holder">
-                    <a class="btn btn-info btn-block" href="{{item.item_link}}">
+                    <a class="btn btn-info btn-block btn-get-now" href="{{item.item_link}}">
 	                    GET NOW
 	                </a>
 	            </div>
