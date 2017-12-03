@@ -92,8 +92,7 @@ class lelongScrapEngine:
                         continue
                     elif review == '-':
                         continue
-                    item_instance = models.Feedback.objects.create(item_id=pID,
-                                                                   comment=review)
+                    item_instance = models.Feedback.objects.create(item_id=pID, comment=review)
                 except IndexError:
                     review = 'no review'
 

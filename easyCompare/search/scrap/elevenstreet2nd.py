@@ -29,12 +29,13 @@ class estreetScrapEngine:
             item.seller_rate = sellerate.em.text.strip()
         except Exception:
             item.seller_rate = "Not available"
+
         # ship info
         try:
             shipinfo = page_soup.find("dl", {"class", "detail-shipping-price-list"})
             item.shipping = shipinfo.text.strip()
         except Exception:
-            item.shipping = "Not available"
+            item.shipping = "Free Shipping"
 
         # condition
         try:
@@ -45,6 +46,7 @@ class estreetScrapEngine:
 
         item.save()
 
+<<<<<<< HEAD
         commentlist = page_soup.findAll("p", {"class", "echo-item-description"})
         for eachcomment in commentlist:
             try:
@@ -54,6 +56,8 @@ class estreetScrapEngine:
             except Exception as error:
                 print(error)
 
+=======
+>>>>>>> 227ca167b668764b496ccf9c9e57301da3b414ab
         # product detail
         try:
             info = ''
