@@ -9,8 +9,8 @@ class lazadaScrapEngine:
     def scrapIt(self, item):
         my_url = item.item_link
         PID = get_object_or_404(models.SearchItem, item_id=item.item_id)
-
-        webdriverpath = "C:/webdriver/phantomjs.exe"
+        #
+        webdriverpath = "D:/FYP/phantomjs-2.1.1-windows/bin/phantomjs.exe"
         driver = webdriver.PhantomJS(webdriverpath)
         driver.get(my_url)
 

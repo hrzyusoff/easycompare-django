@@ -1,0 +1,32 @@
+[INFO  - 2017-12-02T15:19:02.438Z] GhostDriver - Main - running on port 9275
+[INFO  - 2017-12-02T15:19:05.848Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-12-02T15:19:05.849Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.customHeaders:  - {}
+[INFO  - 2017-12-02T15:19:05.849Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-10-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-12-02T15:19:05.849Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 22d12700-d774-11e7-a332-699b7790a5cf
+[ERROR - 2017-12-02T15:19:27.982Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'window.performance.getEntriesByType("resource")')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-12-02T15:19:27.983Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - stack:
+  (anonymous function) (https://my-live-02.slatic.net/lzdtracker/resource_performance.js?v=2a4a781:30)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-12-02T15:19:37.016Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'window.Recommendations.apiEndpoint.endsWith("/")')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-12-02T15:19:37.017Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - stack:
+  getUrl (https://recommender.lazada.com.my/rico_client.js:58)
+  get_recommendations (https://recommender.lazada.com.my/rico_client.js:66)
+  (anonymous function) (https://recommender.lazada.com.my/rico_client.js:80)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-12-02T15:19:38.056Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'window.spons.apiEndpoint.endsWith("/")')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-12-02T15:19:38.057Z] Session [22d12700-d774-11e7-a332-699b7790a5cf] - page.onError - stack:
+  getUrl (https://recommender.lazada.com.my/sp_client.js:78)
+  get_spons (https://recommender.lazada.com.my/sp_client.js:86)
+  (anonymous function) (https://recommender.lazada.com.my/sp_client.js:100)
+
+  phantomjs://platform/console++.js:263 in error
+[INFO  - 2017-12-02T15:24:02.700Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-12-02T15:24:02.700Z] SessionManagerReqHand - _cleanupWindowlessSessions - Deleted Session '22d12700-d774-11e7-a332-699b7790a5cf', because windowless
