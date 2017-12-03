@@ -8,12 +8,15 @@ import requests
 class estreetScrapEngine:
     def scrapIt(self, item):
         my_url = item.item_link
-
+        PID = get_object_or_404(models.SearchItem, item_id=item.item_id)
         # headers = {'User-Agent': 'Mozilla/5.0'}
         # page = requests.get(my_url)
         # page_soup = soup(page.text, "html.parser")
 
-        webdriverpath = "D:/FYP/phantomjs-2.1.1-windows/bin/phantomjs.exe"
+        #url
+        # webdriverpath = "D:/FYP/phantomjs-2.1.1-windows/bin/phantomjs.exe"
+        #url yeh
+        webdriverpath = "C:/webdriver/phantomjs.exe"
         driver = webdriver.PhantomJS(webdriverpath)
         driver.get(my_url)
 
@@ -42,10 +45,14 @@ class estreetScrapEngine:
 
         item.save()
 
-        # # seller rating - selenium
-        # sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
-        # seller = page_soup.findAll("dl", {"class": "product-detail-seller"})
-        # #item.rating = seller[0].dd.em.text
+        commentlist = page_soup.findAll("p", {"class", "echo-item-description"})
+        for eachcomment in commentlist:
+            try:
+                comment = eachcomment.text.strip().replace("Read more", "")
+                # print(comment)
+                item_instance = models.Feedback.objects.create(item_id=PID, comment=comment)
+            except Exception as error:
+                print(error)
 
         # product detail
         try:
@@ -53,7 +60,7 @@ class estreetScrapEngine:
             prodspeccontainer = page_soup.findAll("div", {"class": "product-detail-info-block"})
             n = 0
             for container in prodspeccontainer:
-                tag = container.findAll("p")
+                tag = container.findAll(["p","li"])
                 length = len(tag)
                 while n != length:
                     spec = tag[n].text.strip()
