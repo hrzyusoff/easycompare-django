@@ -26,12 +26,13 @@ class estreetScrapEngine:
             item.seller_rate = sellerate.em.text.strip()
         except Exception:
             item.seller_rate = "Not available"
+
         # ship info
         try:
             shipinfo = page_soup.find("dl", {"class", "detail-shipping-price-list"})
             item.shipping = shipinfo.text.strip()
         except Exception:
-            item.shipping = "Not available"
+            item.shipping = "Free Shipping"
 
         # condition
         try:
@@ -41,11 +42,6 @@ class estreetScrapEngine:
             item.condition = 'Not available'
 
         item.save()
-
-        # # seller rating - selenium
-        # sellerContainer = page_soup.findAll("section", {"class": "aside-section-detail-seller-info"})
-        # seller = page_soup.findAll("dl", {"class": "product-detail-seller"})
-        # #item.rating = seller[0].dd.em.text
 
         # product detail
         try:
