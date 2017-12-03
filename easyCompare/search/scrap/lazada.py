@@ -53,7 +53,7 @@ class lazadaScrapEngine:
                                                                  rating='',
                                                                  detail=item_detail,
                                                                  item_link=detail_url,
-                                                                 condition='',
+                                                                 condition='-',
                                                                  seller_rate='',
                                                                  shipping='')
                 n = n + 1

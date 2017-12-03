@@ -10,7 +10,7 @@ class lazadaScrapEngine:
         my_url = item.item_link
         PID = get_object_or_404(models.SearchItem, item_id=item.item_id)
         #
-        webdriverpath = "D:/FYP/phantomjs-2.1.1-windows/bin/phantomjs.exe"
+        webdriverpath = "C:/webdriver/phantomjs.exe"
         driver = webdriver.PhantomJS(webdriverpath)
         driver.get(my_url)
 
@@ -49,8 +49,7 @@ class lazadaScrapEngine:
             commentlist = container.text.strip()
             if commentlist == '':
                 commentlist = 'No review given'
-            item_instance = models.Feedback.objects.create(item_id=PID,
-                                                           comment=commentlist)
+            item_instance = models.Feedback.objects.create(item_id=PID, comment=commentlist)
             count = count + 1
             if count == 5:
                 break

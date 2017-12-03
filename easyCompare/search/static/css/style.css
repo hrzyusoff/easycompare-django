@@ -587,27 +587,26 @@ input[type=checkbox], .custom-checkbox{
 .caption{
 	margin: 10px 0 10px 0;
 	padding: 10%;
-	background-color: red;
+	background-color: #efa937;
+	color: #444;
 	width: auto;
 	height: 140px;
 	overflow: hidden;
-	/*display: inline-block;*/
 	border-radius: 5px;
 }
 .font-bold{
-	font-family: 'Bold';
+	font-family: 'Black';
 	font-size: 16px;
 }
-.ecomm-style{
-	borde: 1px solid blue;
+.regular-font{
+	font-family: 'Light'
 }
-/*.test-div{
-	border: 1px solid red;
-}*/
-/*.btn-floating i:hover{
- 	transform:rotate(360deg);
- 	transition: all 0.5s linear;
-}*/
+.block-main{
+	border-bottom: 1px solid #595353
+}
+.ship-style{
+	height: 120px;
+}
 /*
 	Supahands Color scheme
 	red = color: #cf4d4b;

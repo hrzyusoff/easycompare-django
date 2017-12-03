@@ -26,19 +26,17 @@ center>img{
     cursor:pointer;
 }      
 .pricing-feature-list{
-    padding: 10%;
     background: #444;
     color: #eee;
+    overflow: hidden;
 }
 .pricing-feature-list .list-group-item {
     position: relative;
     display: block;
     padding: 15px 15px;
-    margin-bottom: -1px;
     background-color: #5a5e7a;
     font-size: 15px;
     border: 1px solid #444;
-    border-bottom: 1px solid #595353
 }
 .list-group-item{
     background-color: #444 !important;
