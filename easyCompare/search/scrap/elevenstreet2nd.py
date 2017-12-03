@@ -13,7 +13,7 @@ class estreetScrapEngine:
         # page = requests.get(my_url)
         # page_soup = soup(page.text, "html.parser")
 
-        webdriverpath = "C:/webdriver/phantomjs.exe"
+        webdriverpath = "D:/FYP/phantomjs-2.1.1-windows/bin/phantomjs.exe"
         driver = webdriver.PhantomJS(webdriverpath)
         driver.get(my_url)
 

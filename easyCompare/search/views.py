@@ -54,6 +54,7 @@ def details(request, item_id):
     page = item.page
     page = str(page).strip()
 
+    Feedback.objects.all().delete()
     if page == "11street":
         scrap11street = elevenstreet2nd.estreetScrapEngine()
         scrap11street.scrapIt(item)
@@ -72,13 +73,13 @@ def specs(request):
     compare_item = request.POST.getlist("compare")
     item = SearchItem.objects.filter(item_id__in=compare_item)
 
+    Feedback.objects.all().delete()
     for thing in item:
         page = thing.page
         page = str(page).strip()
         item_obj = thing
 
         if page == '11street':
-            #add isEmpty here to avoid duplicate in model
             scrap11street = elevenstreet2nd.estreetScrapEngine()
             scrap11street.scrapIt(item_obj)
         elif page == 'Lazada Malaysia':
