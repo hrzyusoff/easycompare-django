@@ -584,6 +584,13 @@ input[type=checkbox], .custom-checkbox{
 	width: 250px;
 	height: 250px;
 }
+.orange-title, .orange-dot{
+	color:  #efa937;
+}
+.orange-dot{
+	/*color: #808080;*/
+	font-size: 9px !important;
+}
 .caption{
 	margin: 10px 0 10px 0;
 	padding: 10%;

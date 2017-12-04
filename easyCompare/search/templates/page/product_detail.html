@@ -22,17 +22,17 @@
 	            </div>
 	            <div class="pricing-feature-list">
 	                <ul class="list-group">
-                      <div class="block-main ecomm-style"><li class="list-group-item"><i class="fa fa-shopping-cart"></i> E-commerce:<br><span class="regular-font">{{ item.page }}</span></li></div>
-                      <div class="block-main price-style"><li class="list-group-item"><i class="fa fa-usd"></i> Price:<br><span class="regular-font">{{ item.price }}</span></li></div>
-                      <div class="block-main condition-style"><li class="list-group-item"><i class="fa fa-bolt"></i> Condition:<br><span class="regular-font">{{ item.condition }}</span></li></div>
-                      <div class="block-main avg-style"><li class="list-group-item"><i class="fa fa-bar-chart"></i> Average rating:<br><span class="regular-font">{{ item.rating }}</span></li></div>
-                      <div class="block-main sellrate-style"><li class="list-group-item"><i class="fa fa-user"></i> Seller rating:<br><span class="regular-font">{{ item.seller_rate }}</span></li></div>
-					  <div class="block-main ship-style"><li class="list-group-item"><i class="fa fa-truck"></i> Shipping:<br><span class="regular-font">{{ item.shipping }}</span></li></div>
-                      <div class="block-main details-style"><li class="list-group-item"><i class="fa fa-list-alt"></i> Details:<br><span class="regular-font">{{ item.detail }}</span></li></div>
-                      <div class="feedback-style"><li class="list-group-item"><i class="fa fa-users"></i> Feedback from customers :</li> </div>
+                      <div class="block-main ecomm-style"><li class="list-group-item"><i class="fa fa-shopping-cart orange-title"></i><span class="orange-title"> E-commerce:</span><br><span class="regular-font">{{ item.page }}</span></li></div>
+                      <div class="block-main price-style"><li class="list-group-item"><i class="fa fa-usd orange-title"></i><span class="orange-title"> Price:</span><br><span class="regular-font">{{ item.price }}</span></li></div>
+                      <div class="block-main condition-style"><li class="list-group-item"><i class="fa fa-bolt orange-title"></i><span class="orange-title"> Condition:</span><br><span class="regular-font">{{ item.condition }}</span></li></div>
+                      <div class="block-main avg-style"><li class="list-group-item"><i class="fa fa-bar-chart orange-title"></i><span class="orange-title"> Average rating:</span><br><span class="regular-font">{{ item.rating }}</span></li></div>
+                      <div class="block-main sellrate-style"><li class="list-group-item"><i class="fa fa-user orange-title"></i><span class="orange-title"> Seller rating:</span><br><span class="regular-font">{{ item.seller_rate }}</span></li></div>
+					  <div class="block-main ship-style"><li class="list-group-item"><i class="fa fa-truck orange-title"></i><span class="orange-title"> Shipping:</span><br><span class="regular-font">{{ item.shipping }}</span></li></div>
+                      <div class="block-main details-style"><li class="list-group-item"><i class="fa fa-list-alt orange-title"></i><span class="orange-title"> Details:</span><br><span class="regular-font">{{ item.detail }}</span></li></div>
+                      <div class="feedback-style"><li class="list-group-item"><i class="fa fa-users orange-title"></i><span class="orange-title"> Feedback from customers :</span></li> </div>
                         {% for feedback in item.feedback_set.all %}
                         <ul class="list-group">
-                          <li class="block-main list-group-item regular-font">- {{feedback.comment}}</li>
+                          <li class="block-main list-group-item regular-font"><i class="fa fa-circle orange-dot"></i> {{feedback.comment}}</li>
                         </ul>
                         {% endfor %}
                     </ul>
