@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as soup
 from selenium import webdriver
 from django.shortcuts import render, get_object_or_404
 from search import models
+from decimal import Decimal
 import requests
 
 
@@ -26,7 +27,11 @@ class estreetScrapEngine:
         # seller rate
         try:
             sellerate = page_soup.find("dl", {"class", "product-detail-seller"})
-            item.seller_rate = sellerate.em.text.strip()
+            decRate = Decimal(sellerate.em.text.strip())
+            rate = (decRate/5)*100
+            strrate = str(rate) + '%'
+            item.seller_rate = strrate
+
         except Exception:
             item.seller_rate = "Not available"
 
