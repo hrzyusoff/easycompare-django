@@ -106,7 +106,7 @@ a:hover,a:focus {
 }
 .navbar-custom .nav li a:hover {
 	outline:0;
-	color:#1ba39c;
+	color:#efa937;
 	background-color:transparent;
 }
 .navbar-custom .nav li a:focus,.navbar-custom .nav li a:active {
@@ -117,10 +117,10 @@ a:hover,a:focus {
 	outline:0;
 }
 .navbar-custom .nav li.active a {
-	color:#1ba39c;
+	color:#efa937;
 }
 .navbar-custom .nav li.active a:hover {
-	color:#1ba39c;
+	color:#efa937;
 }
 @media(min-width:768px) {
 	.navbar-custom {
@@ -150,7 +150,7 @@ a:hover,a:focus {
 	padding:100px 0 100px 0;
 	text-align:center;
 	color:#fff;
-	background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,0.46),rgba(0,0,0,0.88)),url('../img/main-bg-new.jpg');*/
+	background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,0.46),rgba(0,0,0,0.88)),url('../img/main-bg-new.jpg');
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	background-size:cover;
@@ -270,7 +270,7 @@ a:hover,a:focus {
 	transition:all .3s ease-in-out;
 }
 
-.btn-compare, .btn-get-now{
+.btn-compare, .btn-get-now, .btn-get-now-pd{
 	font-family:'Black';
 }
 .btn-compare{
@@ -281,10 +281,10 @@ a:hover,a:focus {
 .btn-compare:hover{
 	background-color: #4ba341;
 }
-.btn-compare, .btn-compare:hover, .btn-get-now, .btn-get-now:hover{
+.btn-compare, .btn-compare:hover, .btn-get-now, .btn-get-now:hover, .btn-get-now-pd, .btn-get-now-pd:hover{
 	border-color: transparent;
 }
-.btn-get-now:hover{
+.btn-get-now:hover, .btn-get-now-pd:hover{
 	background-color: #4ba341;
 	color: white;
 }
@@ -454,7 +454,7 @@ section:after {
 	clear:both;
 }
 section {
-	background-color:#7a7bae; /*#f9f9f9*/
+	/*background-color:#7a7bae; /*#f9f9f9*/*/
 	color:#333;
 	overflow:hidden;
 	height: 100%;
@@ -574,9 +574,6 @@ input[type=checkbox], .custom-checkbox{
 .font-base{
 	font-size: 17px;
 }
-.fbemail{
-	border-bottom:1px dashed red;
-}
 .img-pointer{
 	cursor: pointer;
 }
@@ -584,22 +581,24 @@ input[type=checkbox], .custom-checkbox{
 	width: 250px;
 	height: 250px;
 }
-.orange-title, .orange-dot{
+.orange-title, .orange-dot, .fbemail:hover{
 	color:  #efa937;
 }
 .orange-dot{
 	/*color: #808080;*/
 	font-size: 9px !important;
 }
-.caption{
-	margin: 10px 0 10px 0;
-	padding: 10%;
+.caption, .caption-pd{
+	padding: 5%;
 	background-color: #efa937;
 	color: #444;
 	width: auto;
-	height: 140px;
 	overflow: hidden;
 	border-radius: 5px;
+}
+.caption{
+	margin: 10px 0 10px 0;
+	height: 140px;
 }
 .font-bold{
 	font-family: 'Black';
@@ -614,6 +613,24 @@ input[type=checkbox], .custom-checkbox{
 .ship-style{
 	height: 120px;
 }
+.logo-ez{
+	height: 16px;
+	width: 16px;
+}
+#contact h2, #about h2{
+	color: #212121;
+	font-family: 'Black';
+}
+.feedback-style{
+	height: 100%;
+}
+.customer-container{
+	margin-top: 50px;
+	background-color: #444;
+}
+/*.feedback-style, .details-style{
+	height: inherit;
+}*/
 /*
 	Supahands Color scheme
 	red = color: #cf4d4b;

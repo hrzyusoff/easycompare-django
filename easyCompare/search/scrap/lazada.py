@@ -11,7 +11,7 @@ class lazadaScrapEngine:
         # to act like human that browse from browser
         headers = {'User-Agent': 'Mozilla/5.0'}
         # do requesting to act like human not bot
-        page = requests.get(my_url)
+        page = requests.get(my_url, headers=headers)
 
         # html parsing
         page_soup = soup(page.text, "html.parser")

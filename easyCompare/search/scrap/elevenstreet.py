@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as soup
 from django.shortcuts import render, get_object_or_404
 from search import models
+from decimal import Decimal
 import requests
 
 
@@ -11,7 +12,7 @@ class estreetScrapEngine:
         # to act like human that browse from browser
         headers = {'User-Agent': 'Mozilla/5.0'}
         # do requesting to act like human not bot
-        page = requests.get(my_url)
+        page = requests.get(my_url, headers=headers)
 
         # html parsing
         page_soup = soup(page.text, "html.parser")
@@ -24,7 +25,9 @@ class estreetScrapEngine:
         try:
             rateproddiv = page_soup.find("div", {"class": "product-ranking-star sprites star5"})
             rateprodval = rateproddiv.span["content"]
-            rating = rateprodval + "out of 5"
+            realvalue = (Decimal(rateprodval)/5)*100
+            rating = str(realvalue)+"%"
+            print(rating)
         except Exception:
             rating = 'No rating'
 

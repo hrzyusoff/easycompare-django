@@ -1,22 +1,23 @@
 {% extends 'page/base.html' %}
 
 {% block body %}
+
     <div class="jumbotron">
         <div class="container text-center">
-             <h2 class="page-header">COMPARISON TABLE</h2>
-        <p class="lead"><i class="fa fa-quote-left orange-title" aria-hidden="true"></i> Comparison result between 3 product from different sites <i class="fa fa-quote-right orange-title" aria-hidden="true"></i> </p>
+             <h2 class="page-header">PRODUCT DETAILS</h2>
+        <p class="lead">"More details about the product"</p>
         </div>
 	</div>
-	<div class="container">
-	    <div class="row well">
-			{% for item in item1 %}
-			<div class="col-md-4">
+
+    <div class="container">
+	    <div class="row">
+			<div class="col-md-4 well well-pd">
 	            <div class="pricing-table-holder">
 	                <center>
 	                    <img src="{{ item.pic }}" class="img-responsive img-circle img-circle-fixed" alt="">
 	                </center>
 	            </div>
-	            <div class="caption text-center">
+				<div class="caption text-center">
 	                <p class="font-bold align-middle">{{ item.title }}</p>
 	            </div>
 	            <div class="pricing-feature-list">
@@ -30,8 +31,8 @@
                       <div class="block-main details-style"><li class="list-group-item"><i class="fa fa-list-alt orange-title"></i><span class="orange-title"> Details:</span><br><span class="regular-font">{{ item.detail }}</span></li></div>
                       <div class="feedback-style"><li class="list-group-item"><i class="fa fa-users orange-title"></i><span class="orange-title"> Feedback from customers :</span></li> </div>
                         {% for feedback in item.feedback_set.all %}
-                        <ul>
-                        	<li class="list-group-item regular-font"><i class="fa fa-circle orange-dot"></i> {{feedback.comment}}</li>
+                        <ul class="list-group">
+                          <li class="block-main list-group-item regular-font"><i class="fa fa-circle orange-dot"></i> {{feedback.comment}}</li>
                         </ul>
                         {% endfor %}
                     </ul>
@@ -42,7 +43,6 @@
 	                </a>
 	            </div>
 	        </div>
-			{% endfor %}
 	    </div>
 	</div>
-{% endblock %}
+{%endblock%}

@@ -4,20 +4,22 @@
 
     <div class="jumbotron">
         <div class="container text-center">
-             <h1 class="page-header">PRODUCT DETAILS</h1>
-        <p class="lead">More details about the product</p>
+             <h2 class="page-header">PRODUCT DETAILS</h2>
+        <p class="lead"><i class="fa fa-quote-left orange-title" aria-hidden="true"></i> More details about the product <i class="fa fa-quote-right orange-title" aria-hidden="true"></i> </p>
         </div>
 	</div>
 
-    <div class="container">
+    <div class="container well well-pd">
 	    <div class="row">
-			<div class="col-md-4 well pricing-table">
+			<div class="col-md-4 extend-div">
 	            <div class="pricing-table-holder">
 	                <center>
 	                    <img src="{{ item.pic }}" class="img-responsive img-circle img-circle-fixed" alt="">
 	                </center>
 	            </div>
-				<div class="caption text-center">
+	        </div>
+	        <div class="col-md-8">
+				<div class="caption-pd text-center">
 	                <p class="font-bold align-middle">{{ item.title }}</p>
 	            </div>
 	            <div class="pricing-feature-list">
@@ -37,12 +39,12 @@
                         {% endfor %}
                     </ul>
 	            </div>
-	            <div class="price-table-button-holder">
-                    <a class="btn btn-info btn-block btn-get-now" href="{{item.item_link}}" target="_blank">
-	                    GET NOW
-	                </a>
-	            </div>
 	        </div>
 	    </div>
+	<div class="price-table-button-holder">
+        <a class="btn btn-info btn-block btn-get-now-pd" href="{{item.item_link}}" target="_blank">
+        	GET NOW
+        </a>
+    </div>	
 	</div>
 {%endblock%}

@@ -46,7 +46,6 @@ class estreetScrapEngine:
 
         item.save()
 
-<<<<<<< HEAD
         commentlist = page_soup.findAll("p", {"class", "echo-item-description"})
         for eachcomment in commentlist:
             try:
@@ -56,8 +55,6 @@ class estreetScrapEngine:
             except Exception as error:
                 print(error)
 
-=======
->>>>>>> 227ca167b668764b496ccf9c9e57301da3b414ab
         # product detail
         try:
             info = ''

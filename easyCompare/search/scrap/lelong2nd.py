@@ -10,7 +10,7 @@ class lelongScrapEngine:
         my_url = item.item_link
 
         headers = {'User-Agent': 'Mozilla/5.0'}
-        page = requests.get(my_url)
+        page = requests.get(my_url, headers=headers)
         page_soup = soup(page.text, "html.parser")
 
         pID = get_object_or_404(models.SearchItem, item_id=item.item_id)

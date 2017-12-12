@@ -8,7 +8,7 @@ class lelongScrapEngine:
     def scrapIt(self, llconcatURL):
         my_url = llconcatURL
         headers = {'User-Agent': 'Mozilla/5.0'}
-        page = requests.get(my_url)
+        page = requests.get(my_url, headers=headers)
         page_soup = soup(page.text, "html.parser")
 
         page = get_object_or_404(models.PageCrawl, pk=10)
@@ -22,7 +22,7 @@ class lelongScrapEngine:
             if reviewstar == 0:
                 reviewitem = "No rating"
             else:
-                reviewitem = str(reviewstar) + " out of 5"
+                reviewitem = str(reviewstar) + "/5"
 
             productname = container.findAll("div", {"class": "summary"})
             pricetag = container.findAll("span", {"class": "price pull-right"})
