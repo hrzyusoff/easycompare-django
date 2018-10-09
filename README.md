@@ -3,4 +3,4 @@ It is about web scraping for price comparison between 11street, Lazada and Lelon
 Python for scrape engine and Django for web framework.
 
 Note :
-* URL of code has been changed, currently we are figure out the latest url used by the sites
+* URL and element in HTML of each sites has been changed, so currently we are figuring out the latest url and latest element used by the sites
